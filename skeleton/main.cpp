@@ -30,6 +30,7 @@ PxDefaultCpuDispatcher*	gDispatcher = NULL;
 PxScene*				gScene      = NULL;
 ContactReportCallback gContactReportCallback;
 
+RenderItem* item1;
 
 // Initialize physics engine
 void initPhysics(bool interactive)
@@ -54,6 +55,12 @@ void initPhysics(bool interactive)
 	sceneDesc.filterShader = contactReportFilterShader;
 	sceneDesc.simulationEventCallback = &gContactReportCallback;
 	gScene = gPhysics->createScene(sceneDesc);
+
+	PxShape* elem = CreateShape(PxSphereGeometry(5));
+	PxTransform* tr = new PxTransform(PxVec3());
+	PxVec4 color = PxVec4(1.0, 0.0, 0.0, 1.0);
+
+	item1 = new RenderItem(elem, tr, color);
 	}
 
 
@@ -72,6 +79,8 @@ void stepPhysics(bool interactive, double t)
 // Add custom code to the begining of the function
 void cleanupPhysics(bool interactive)
 {
+	DeregisterRenderItem(item1);
+
 	PX_UNUSED(interactive);
 
 	// Rigid Body ++++++++++++++++++++++++++++++++++++++++++
@@ -82,7 +91,6 @@ void cleanupPhysics(bool interactive)
 	PxPvdTransport* transport = gPvd->getTransport();
 	gPvd->release();
 	transport->release();
-	
 	gFoundation->release();
 	}
 

@@ -40,4 +40,8 @@ skeleton/debug/**
 /skeleton/.vs/game/**
 
 # Zip files
-*.zip
+# *.zip
+
+# Dejar de ignorar
+!bin/**
+!common/**

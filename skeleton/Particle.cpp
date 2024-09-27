@@ -1,7 +1,7 @@
 #include "Particle.h"
 
 #include "RenderUtils.hpp"
-
+#include <cmath>
 
 using namespace physx;
 
@@ -9,6 +9,8 @@ Particle::Particle(Vector3D<> pos, Vector3D<> vel, const PxGeometryType::Enum& g
 {
 	tr = new PxTransform(PxVec3(pos.x, pos.y, pos.z));
 	velocity = vel;
+	aceleration = Vector3D<>();
+	damping = 0.9;
 	PxShape* shape = nullptr;
 
 	switch (geoType)
@@ -41,5 +43,12 @@ Particle::~Particle()
 
 void Particle::Integrate(double t)
 {
-	tr->p += PxVec3(velocity.x, velocity.y, velocity.z) * t;
+	velocity = velocity * std::pow(damping, t); // Damping
+
+	velocity = velocity + aceleration * t; // Aceleración
+
+	tr->p += PxVec3(velocity.x, velocity.y, velocity.z) * t; // Seteamos posicion
+
+	std::cout << velocity;
+
 }

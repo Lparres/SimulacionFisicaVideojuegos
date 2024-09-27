@@ -65,7 +65,8 @@ void initPhysics(bool interactive)
 
 	// Creación de los ejes del mundo
 	axis = new Axis3D();
-	particle = new Particle(Vector3D<>(0, 2, 0), Vector3D<>(0, 5, 0));
+	particle = new Particle(Vector3D<>(0, 2, 0), Vector3D<>(0, 10, 0));
+	particle->SetAceleration(Vector3D<>(0.1, 0, 0));
 	}
 
 
@@ -77,7 +78,7 @@ void stepPhysics(bool interactive, double t)
 	PX_UNUSED(interactive);
 
 	gScene->simulate(t);
-
+	particle->SetAceleration(Vector3D<>(10, 0, 0));
 	particle->Integrate(t);
 
 	gScene->fetchResults(true);

@@ -98,7 +98,7 @@ public:
 	}
 
 	friend std::ostream& operator<<(std::ostream& os, const Vector3D<T>& v) {
-		os << "[ " << v.x << " | " << v.y << " | " << v.z << " ]";
+		os << "[ " << v.x << " | " << v.y << " | " << v.z << " ]" << "\n";
 		return os;
 	}
 

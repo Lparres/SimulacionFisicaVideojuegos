@@ -16,9 +16,14 @@ public:
 
 	void Integrate(double t);
 
+	Vector3D<> GetAceleration() { return aceleration; }
+	void SetAceleration(Vector3D<> acel) { aceleration = acel; }
+
 private: 
 	RenderItem* item;
 	Vector3D<> velocity;
 	physx::PxTransform* tr;
+	Vector3D<> aceleration;
+	double damping;
 };
 

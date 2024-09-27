@@ -11,6 +11,7 @@
 #include <iostream>
 
 #include "Axis3D.h"
+#include "Particle.h"
 
 
 std::string display_text = "This is a test";
@@ -35,6 +36,7 @@ ContactReportCallback gContactReportCallback;
 
 RenderItem* item1;
 Axis3D* axis;
+Particle* particle;
 
 // Initialize physics engine
 void initPhysics(bool interactive)
@@ -63,6 +65,7 @@ void initPhysics(bool interactive)
 
 	// Creación de los ejes del mundo
 	axis = new Axis3D();
+	particle = new Particle(Vector3D<>(0, 2, 0), Vector3D<>(0, 5, 0));
 	}
 
 
@@ -74,6 +77,9 @@ void stepPhysics(bool interactive, double t)
 	PX_UNUSED(interactive);
 
 	gScene->simulate(t);
+
+	particle->Integrate(t);
+
 	gScene->fetchResults(true);
 }
 
@@ -81,7 +87,7 @@ void stepPhysics(bool interactive, double t)
 // Add custom code to the begining of the function
 void cleanupPhysics(bool interactive)
 {
-	//DeregisterRenderItem(item1);
+	delete particle;
 
 	PX_UNUSED(interactive);
 

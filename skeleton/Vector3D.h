@@ -76,9 +76,8 @@ public:
 		return Vector3D<T>(x - other.x, y - other.y, z - other.z);
 	}
 
-	Vector3D<T> operator*(const T& scalar) {
-		Scale(scalar);
-		return *this;
+	Vector3D<T> operator*(const T& scalar) const {
+		return Vector3D<>(x*scalar, y*scalar, z*scalar);
 	}
 
 	Vector3D<T> operator*(const Vector3D<T>& other) {

@@ -19,7 +19,7 @@ public:
 	Vector3D<> GetAceleration() { return aceleration; }
 	void SetAceleration(Vector3D<> acel) { aceleration = acel; }
 
-private: 
+protected: 
 	RenderItem* item;
 	Vector3D<> velocity;
 	physx::PxTransform* tr;

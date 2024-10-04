@@ -12,6 +12,7 @@
 
 #include "Axis3D.h"
 #include "Particle.h"
+#include "Projectile.h"
 
 
 std::string display_text = "This is a test";
@@ -34,9 +35,10 @@ PxDefaultCpuDispatcher*	gDispatcher = NULL;
 PxScene*				gScene      = NULL;
 ContactReportCallback gContactReportCallback;
 
-RenderItem* item1;
-Axis3D* axis;
-Particle* particle;
+RenderItem* item1 = nullptr;
+Axis3D* axis = nullptr;
+Particle* particle = nullptr;
+std::vector<Projectile*> projectileVector;
 
 // Initialize physics engine
 void initPhysics(bool interactive)
@@ -65,8 +67,13 @@ void initPhysics(bool interactive)
 
 	// Creación de los ejes del mundo
 	axis = new Axis3D();
+
+	// Particle 1.1
 	particle = new Particle(Vector3D<>(0, 2, 0), Vector3D<>(0, 10, 0));
-	particle->SetAceleration(Vector3D<>(0.1, 0, 0));
+	if (particle != nullptr)
+		particle->SetAceleration(Vector3D<>(10, 0, 0));
+
+
 	}
 
 
@@ -78,8 +85,11 @@ void stepPhysics(bool interactive, double t)
 	PX_UNUSED(interactive);
 
 	gScene->simulate(t);
-	particle->SetAceleration(Vector3D<>(10, 0, 0));
-	particle->Integrate(t);
+
+	if(particle != nullptr)
+		particle->Integrate(t);
+
+	for (Projectile* e : projectileVector) e->Integrate(t);
 
 	gScene->fetchResults(true);
 }
@@ -112,8 +122,13 @@ void keyPress(unsigned char key, const PxTransform& camera)
 	{
 	//case 'B': break;
 	//case ' ':	break;
-	case ' ':
+	case 'Z':
 	{
+		
+		Vector3D<> initialPos(GetCamera()->getTransform().p.x, GetCamera()->getTransform().p.y, GetCamera()->getTransform().p.z);
+		Vector3D<> initialDir(GetCamera()->getDir().x, GetCamera()->getDir().y, GetCamera()->getDir().z);
+		projectileVector.push_back(new Projectile(250, 25, 1, 1, initialPos, initialDir));
+		std::cout << "InitialPos: " << initialPos << "   " << "InitialDir: " << initialDir;
 		break;
 	}
 	default:

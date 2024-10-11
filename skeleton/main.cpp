@@ -127,8 +127,7 @@ void keyPress(unsigned char key, const PxTransform& camera)
 		
 		Vector3D<> initialPos(GetCamera()->getTransform().p.x, GetCamera()->getTransform().p.y, GetCamera()->getTransform().p.z);
 		Vector3D<> initialDir(GetCamera()->getDir().x, GetCamera()->getDir().y, GetCamera()->getDir().z);
-		projectileVector.push_back(new Projectile(250, 25, 1, 1, initialPos, initialDir));
-		std::cout << "InitialPos: " << initialPos << "   " << "InitialDir: " << initialDir;
+		projectileVector.push_back(new Projectile(250, 50, 1, 1, initialPos, initialDir));
 		break;
 	}
 	default:

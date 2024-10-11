@@ -18,6 +18,8 @@ public:
 
 	Vector3D<> GetAceleration() { return aceleration; }
 	void SetAceleration(Vector3D<> acel) { aceleration = acel; }
+	void SetVelocity(Vector3D<> vel) { velocity = vel; }
+	void SetPosition(Vector3D<> pos) { tr->p = PxVec3(pos.x, pos.y, pos.z); }
 
 protected: 
 	RenderItem* item;

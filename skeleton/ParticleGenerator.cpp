@@ -1,0 +1,12 @@
+#include "ParticleGenerator.h"
+
+ParticleGenerator::ParticleGenerator(Vector3D<> position, Vector3D<> direction, float speed, float angleDelta, float speedDelta) :
+	id(-1),
+	position(position),
+	direction(direction),
+	speed(speed),
+	angleDelta(angleDelta),
+	speedDelta(speedDelta)
+{
+	particleModel = new Particle(position, direction * speed, physx::PxGeometryType::Enum::eSPHERE, 1, physx::PxVec4(1.0, 1.0, 0.0, 1.0));
+}

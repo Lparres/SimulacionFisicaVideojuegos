@@ -49,8 +49,5 @@ void Particle::Integrate(double t)
 
 	velocity = velocity + aceleration * t; // Aceleración
 
-	tr->p += PxVec3(velocity.x, velocity.y, velocity.z) * t; // Seteamos posicion
-
-	std::cout << velocity;
-	
+	tr->p += PxVec3(velocity.x, velocity.y, velocity.z) * t; // Seteamos posicion	
 }

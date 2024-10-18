@@ -13,7 +13,7 @@
 #include "Axis3D.h"
 #include "Particle.h"
 #include "Projectile.h"
-
+#include "ParticleSystem.h"
 
 std::string display_text = "This is a test";
 
@@ -37,7 +37,7 @@ ContactReportCallback gContactReportCallback;
 
 RenderItem* item1 = nullptr;
 Axis3D* axis = nullptr;
-Particle* particle = nullptr;
+ParticleSystem* particleSystem = nullptr;
 std::vector<Projectile*> projectileVector;
 
 // Initialize physics engine
@@ -68,10 +68,10 @@ void initPhysics(bool interactive)
 	// Creación de los ejes del mundo
 	axis = new Axis3D();
 
+	particleSystem = new ParticleSystem();
+
 	// Particle 1.1
-	particle = new Particle(Vector3D<>(0, 2, 0), Vector3D<>(0, 10, 0));
-	if (particle != nullptr)
-		particle->SetAceleration(Vector3D<>(10, 0, 0));
+	particleSystem->AddNormalGenerator(Vector3D<>(0, -50, 0), Vector3D<>(0, 1, 0), 10, 5, 5);
 
 
 	}
@@ -86,8 +86,7 @@ void stepPhysics(bool interactive, double t)
 
 	gScene->simulate(t);
 
-	if(particle != nullptr)
-		particle->Integrate(t);
+	particleSystem->Update(t);
 
 	for (Projectile* e : projectileVector) e->Integrate(t);
 
@@ -98,7 +97,7 @@ void stepPhysics(bool interactive, double t)
 // Add custom code to the begining of the function
 void cleanupPhysics(bool interactive)
 {
-	delete particle;
+	delete particleSystem;
 
 	PX_UNUSED(interactive);
 

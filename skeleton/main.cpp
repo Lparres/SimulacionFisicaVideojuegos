@@ -70,8 +70,9 @@ void initPhysics(bool interactive)
 
 	particleSystem = new ParticleSystem();
 
-	// Particle 1.1
-	particleSystem->AddNormalGenerator(Vector3D<>(0, -50, 0), Vector3D<>(0, 1, 0), 10, 5, 5);
+	
+	//particleSystem->AddGaussianGenerator(Vector3D<>(10, 10, 10), Vector3D<>(-0.4, 1, 0), 30, 5, 1);
+	particleSystem->AddRainGenerator(Vector3D<>(0, 0, 0), 20, 5);
 
 
 	}

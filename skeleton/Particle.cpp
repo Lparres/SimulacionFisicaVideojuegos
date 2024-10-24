@@ -12,6 +12,7 @@ Particle::Particle(Vector3D<> pos, Vector3D<> vel, const PxGeometryType::Enum& g
 	aceleration = Vector3D<>();
 	damping = 1;
 	PxShape* shape = nullptr;
+	lifeTime = 0;
 
 	switch (geoType)
 	{
@@ -50,4 +51,9 @@ void Particle::Integrate(double t)
 	velocity = velocity + aceleration * t; // Aceleración
 
 	tr->p += PxVec3(velocity.x, velocity.y, velocity.z) * t; // Seteamos posicion	
+}
+
+void Particle::UpdateState(double t)
+{
+	lifeTime += t;
 }

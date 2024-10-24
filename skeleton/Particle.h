@@ -15,6 +15,9 @@ public:
 	~Particle();
 
 	void Integrate(double t);
+	void UpdateState(double t);
+
+	double GetLifeTime() { return lifeTime; };
 
 	Vector3D<> GetAceleration() const { return aceleration; }
 	Vector3D<> GetVelocity() const { return velocity; };
@@ -23,11 +26,15 @@ public:
 	void SetVelocity(Vector3D<> vel) { velocity = vel; }
 	void SetPosition(Vector3D<> pos) { tr->p = physx::PxVec3(pos.x, pos.y, pos.z); }
 
+	
+
 protected: 
 	RenderItem* item;
 	Vector3D<> velocity;
 	physx::PxTransform* tr;
 	Vector3D<> aceleration;
 	double damping;
+
+	double lifeTime;
 };
 

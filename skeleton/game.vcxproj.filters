@@ -15,8 +15,9 @@
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="ParticleGenerator.cpp" />
-    <ClCompile Include="ParticleNormalGenerator.cpp" />
+    <ClCompile Include="ParticleUniformGenerator.cpp" />
     <ClCompile Include="ParticleGaussianGenerator.cpp" />
+    <ClCompile Include="RainGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core.hpp" />
@@ -34,8 +35,9 @@
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="ParticleGenerator.h" />
-    <ClInclude Include="ParticleNormalGenerator.h" />
+    <ClInclude Include="ParticleUniformGenerator.h" />
     <ClInclude Include="ParticleGaussianGenerator.h" />
+    <ClInclude Include="RainGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">

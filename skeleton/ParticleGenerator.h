@@ -3,6 +3,7 @@
 #include "Vector3D.h"
 #include "Particle.h"
 #include "ParticleSystem.h"
+#include <random>
 
 class ParticleGenerator
 {
@@ -26,5 +27,7 @@ protected:
 	Particle* particleModel; 
 	
 	ParticleSystem* systemRef;
+
+	std::mt19937 randomGen;
 };
 

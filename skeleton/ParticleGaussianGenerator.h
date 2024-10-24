@@ -8,5 +8,11 @@ public:
 
 private:
 	void GenerateParticle() override;
+	Vector3D<> RandomDir();
+	float RandomSpeed();
+
+
+	std::normal_distribution<> gaussianDistAngle;
+	std::normal_distribution<> gaussianDistSpeed;
 };
 

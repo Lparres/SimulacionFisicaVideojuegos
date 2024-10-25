@@ -19,6 +19,7 @@ void RainGenerator::GenerateParticle()
 	for(int i = 0; i < intensity; i++)
 		systemRef->AddParticle(CalculateRandomPos(), 
 							   Vector3D<>(0, -1, 0), 
+							   1,
 							   physx::PxGeometryType::Enum::eSPHERE,
 							   0.2,
 							   physx::PxVec4(0.0, 0.0, 1.0, 1.0));

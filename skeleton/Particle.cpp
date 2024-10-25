@@ -5,12 +5,13 @@
 
 using namespace physx;
 
-Particle::Particle(Vector3D<> pos, Vector3D<> vel, const PxGeometryType::Enum& geoType, float size, const PxVec4& color)
+Particle::Particle(Vector3D<> pos, Vector3D<> vel, float m, const PxGeometryType::Enum& geoType, float size, const PxVec4& color)
 {
 	tr = new PxTransform(PxVec3(pos.x, pos.y, pos.z));
 	velocity = vel;
 	aceleration = Vector3D<>();
-	damping = 1;
+	mass = m;
+	damping = 0.995;
 	PxShape* shape = nullptr;
 	lifeTime = 0;
 
@@ -32,13 +33,13 @@ Particle::Particle(Vector3D<> pos, Vector3D<> vel, const PxGeometryType::Enum& g
 		break;
 	}
 
-	item = new RenderItem(shape, tr, color);
+	renderItem = new RenderItem(shape, tr, color);
 }
 
 Particle::~Particle()
 {
-	DeregisterRenderItem(item);
-	delete item;
+	DeregisterRenderItem(renderItem);
+	delete renderItem;
 	delete tr;
 }
 

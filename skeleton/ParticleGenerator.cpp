@@ -10,8 +10,6 @@ ParticleGenerator::ParticleGenerator(Vector3D<> position, Vector3D<> direction, 
 	speedDelta(speedDelta),
 	systemRef(systemRef)
 {
-	particleModel = new Particle(position, direction * speed, physx::PxGeometryType::Enum::eSPHERE, 1, physx::PxVec4(1.0, 1.0, 0.0, 1.0));
-
 	std::random_device rd;
 	randomGen = std::mt19937(rd());
 }

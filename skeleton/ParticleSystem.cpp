@@ -36,9 +36,9 @@ int ParticleSystem::AddRainGenerator(Vector3D<> position, float radius, int inte
 	return generator->GetID();
 }
 
-void ParticleSystem::AddParticle(Vector3D<> position, Vector3D<> velocity, const physx::PxGeometryType::Enum& geoType, float size, const physx::PxVec4& color)
+void ParticleSystem::AddParticle(Vector3D<> position, Vector3D<> velocity, float mass, const physx::PxGeometryType::Enum& geoType, float size, const physx::PxVec4& color)
 {
-	Particle* p = new Particle(position, velocity, geoType, size, color);
+	Particle* p = new Particle(position, velocity, mass, geoType, size, color);
 	p->SetAceleration(Vector3D<>(0, -9.8, 0));
 	particles.push_back(p);
 }

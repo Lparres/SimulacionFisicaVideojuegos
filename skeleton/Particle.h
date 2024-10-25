@@ -7,8 +7,10 @@ class RenderItem;
 class Particle
 {
 public:
-	Particle::Particle(Vector3D<> position, 
+	Particle::Particle(std::list<Particle*>& globalList,
+					   Vector3D<> position, 
 					   Vector3D<> velocity, 
+					   float mass = 1,
 					   const physx::PxGeometryType::Enum& geoType = physx::PxGeometryType::Enum::eSPHERE, 
 					   float size = 1, 
 					   const physx::PxVec4& color = physx::PxVec4(1.0, 1.0, 0.0, 1.0));
@@ -22,19 +24,28 @@ public:
 	Vector3D<> GetAceleration() const { return aceleration; }
 	Vector3D<> GetVelocity() const { return velocity; };
 	Vector3D<> GetPosition() const { return Vector3D<>(tr->p.x, tr->p.y, tr->p.z); };
+	float GetMass() const { return mass; };
 	void SetAceleration(Vector3D<> acel) { aceleration = acel; }
 	void SetVelocity(Vector3D<> vel) { velocity = vel; }
 	void SetPosition(Vector3D<> pos) { tr->p = physx::PxVec3(pos.x, pos.y, pos.z); }
-
+	void SetMass(float m) { mass = m; };
 	
+	void AddForce(Vector3D<>);
 
 protected: 
-	RenderItem* item;
-	Vector3D<> velocity;
+	RenderItem* renderItem;
+
 	physx::PxTransform* tr;
+	Vector3D<> velocity;
 	Vector3D<> aceleration;
+
+	float mass;
+
 	double damping;
 
 	double lifeTime;
+
+	std::list<Particle*>& globalList;
+	std::list<Particle*>::iterator myIt;
 };
 

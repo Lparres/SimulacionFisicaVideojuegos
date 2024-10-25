@@ -21,6 +21,7 @@ void ParticleUniformGenerator::GenerateParticle()
 {
     systemRef->AddParticle(position,
         RandomDir() * RandomSpeed(),
+        1,
         physx::PxGeometryType::Enum::eSPHERE,
         0.5,
         physx::PxVec4(0.0, 1.0, 0.0, 1.0));

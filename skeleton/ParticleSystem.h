@@ -22,6 +22,7 @@ public:
 
 	void AddParticle(Vector3D<> position,
 					 Vector3D<> velocity,
+					 float mass,
 					 const physx::PxGeometryType::Enum& geoType = physx::PxGeometryType::Enum::eSPHERE,
 					 float size = 1,
 					 const physx::PxVec4& color = physx::PxVec4(1.0, 1.0, 0.0, 1.0));

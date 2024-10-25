@@ -2,6 +2,7 @@
 
 #include <list>
 #include "Vector3D.h"
+#include <PxPhysicsAPI.h>
 
 class ParticleGenerator;
 class Particle;
@@ -19,7 +20,11 @@ public:
 	int AddGaussianGenerator(Vector3D<> position, Vector3D<> direction, float speed, float angleDelta, float speedDelta);
 	int AddRainGenerator(Vector3D<> position, float radius, int intensity);
 
-	void AddParticle(Vector3D<> position, Vector3D<> velocity);
+	void AddParticle(Vector3D<> position,
+					 Vector3D<> velocity,
+					 const physx::PxGeometryType::Enum& geoType = physx::PxGeometryType::Enum::eSPHERE,
+					 float size = 1,
+					 const physx::PxVec4& color = physx::PxVec4(1.0, 1.0, 0.0, 1.0));
 
 	void Update(double t);
 

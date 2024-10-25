@@ -16,6 +16,8 @@ public:
 
 	virtual void GenerateParticle() = 0;
 
+	void SetParticleModel(Particle* p) { particleModel = p; };
+
 protected:
 	int id;
 	Vector3D<> position;

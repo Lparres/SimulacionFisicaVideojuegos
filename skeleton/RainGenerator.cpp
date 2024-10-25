@@ -16,9 +16,12 @@ RainGenerator::~RainGenerator()
 
 void RainGenerator::GenerateParticle()
 {
-	std::cout << "hola";
 	for(int i = 0; i < intensity; i++)
-		systemRef->AddParticle(CalculateRandomPos(), Vector3D<>(0, -1, 0));
+		systemRef->AddParticle(CalculateRandomPos(), 
+							   Vector3D<>(0, -1, 0), 
+							   physx::PxGeometryType::Enum::eSPHERE,
+							   0.2,
+							   physx::PxVec4(0.0, 0.0, 1.0, 1.0));
 }
 
 Vector3D<> RainGenerator::CalculateRandomPos()

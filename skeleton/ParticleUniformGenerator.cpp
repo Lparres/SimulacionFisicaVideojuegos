@@ -19,7 +19,11 @@ ParticleUniformGenerator::~ParticleUniformGenerator()
 
 void ParticleUniformGenerator::GenerateParticle()
 {
-	systemRef->AddParticle(position, RandomDir() * RandomSpeed());
+    systemRef->AddParticle(position,
+        RandomDir() * RandomSpeed(),
+        physx::PxGeometryType::Enum::eSPHERE,
+        0.5,
+        physx::PxVec4(0.0, 1.0, 0.0, 1.0));
 }
 
 Vector3D<> ParticleUniformGenerator::RandomDir()

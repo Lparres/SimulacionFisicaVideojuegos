@@ -26,7 +26,11 @@ ParticleGaussianGenerator::~ParticleGaussianGenerator()
 
 void ParticleGaussianGenerator::GenerateParticle()
 {
-    systemRef->AddParticle(position, RandomDir() * RandomSpeed());
+    systemRef->AddParticle(position,
+        RandomDir() * RandomSpeed(),
+        physx::PxGeometryType::Enum::eSPHERE,
+        0.5,
+        physx::PxVec4(1.0, 1.0, 0.0, 1.0));
 }
 
 Vector3D<> ParticleGaussianGenerator::RandomDir()

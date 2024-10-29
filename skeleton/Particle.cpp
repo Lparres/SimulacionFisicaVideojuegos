@@ -5,8 +5,11 @@
 
 using namespace physx;
 
-Particle::Particle(Vector3D<> pos, Vector3D<> vel, float m, const PxGeometryType::Enum& geoType, float size, const PxVec4& color)
+Particle::Particle(std::list<Particle*>& globalList, Vector3D<> pos, Vector3D<> vel, float m, const PxGeometryType::Enum& geoType, float size, const PxVec4& color) :
+	globalListRef(globalList)
 {
+	globalListRef.push_back(this);
+	myIt = std::prev(globalListRef.end());
 	tr = new PxTransform(PxVec3(pos.x, pos.y, pos.z));
 	velocity = vel;
 	aceleration = Vector3D<>();
@@ -38,6 +41,7 @@ Particle::Particle(Vector3D<> pos, Vector3D<> vel, float m, const PxGeometryType
 
 Particle::~Particle()
 {
+	globalListRef.erase(myIt);
 	DeregisterRenderItem(renderItem);
 	delete renderItem;
 	delete tr;
@@ -57,4 +61,9 @@ void Particle::Integrate(double t)
 void Particle::UpdateState(double t)
 {
 	lifeTime += t;
+}
+
+void Particle::ApplyForce(Vector3D<> f)
+{
+	velocity = velocity + f / mass;
 }

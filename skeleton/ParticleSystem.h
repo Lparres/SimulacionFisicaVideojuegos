@@ -13,7 +13,7 @@ class Particle;
 class ParticleSystem
 {
 public:
-	ParticleSystem();
+	ParticleSystem(std::list<Particle*>& globalList);
 	~ParticleSystem();
 
 	int AddUniformGenerator(Vector3D<> position, Vector3D<> direction, float speed, float angleDelta, float speedDelta);
@@ -32,6 +32,7 @@ public:
 private:
 	std::list<ParticleGenerator*> generators;
 	std::list<Particle*> particles;
+	std::list<Particle*>& globalListRef;
 
 	void GenerateParticles();
 	void KillParticles();

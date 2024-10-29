@@ -1,7 +1,7 @@
 #include "Projectile.h"
 
-Projectile::Projectile(float realSpeed, float simulatedSpeed, float realMass, float realSize, Vector3D<> initialPosition, Vector3D<> direction) :
-	Particle(initialPosition, direction * simulatedSpeed, realMass, physx::PxGeometryType::Enum::eSPHERE, realSize, physx::PxVec4(0.0, 0.0, 0.0, 1.0)),
+Projectile::Projectile(std::list<Particle*>& globalList, float realSpeed, float simulatedSpeed, float realMass, float realSize, Vector3D<> initialPosition, Vector3D<> direction) :
+	Particle(globalList, initialPosition, direction * simulatedSpeed, realMass, physx::PxGeometryType::Enum::eSPHERE, realSize, physx::PxVec4(0.0, 0.0, 0.0, 1.0)),
 	realSpeed(realSpeed),
 	simulatedSpeed(simulatedSpeed),
 	realMass(realMass)
@@ -13,8 +13,8 @@ Projectile::Projectile(float realSpeed, float simulatedSpeed, float realMass, fl
 
 }
 
-Projectile::Projectile(Vector3D<> realSpeed, Vector3D<> simulatedSpeed, float realMass, float realSize, Vector3D<> initialPosition) :
-	Particle(initialPosition, simulatedSpeed, realMass, physx::PxGeometryType::Enum::eSPHERE, realSize, physx::PxVec4(1.0, 1.0, 1.0, 1.0)),
+Projectile::Projectile(std::list<Particle*>& globalList, Vector3D<> realSpeed, Vector3D<> simulatedSpeed, float realMass, float realSize, Vector3D<> initialPosition) :
+	Particle(globalList, initialPosition, simulatedSpeed, realMass, physx::PxGeometryType::Enum::eSPHERE, realSize, physx::PxVec4(1.0, 1.0, 1.0, 1.0)),
 	realSpeed(realSpeed.GetMagnitude()),
 	simulatedSpeed(simulatedSpeed.GetMagnitude()),
 	realMass(realMass)

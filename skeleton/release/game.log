@@ -1,4 +1,551 @@
-﻿  main.cpp
-U:\hlocal\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
-U:\hlocal\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
-  game.vcxproj -> U:\hlocal\SimulacionFisicaVideojuegos\bin\game.exe
+﻿  Axis3D.cpp
+  callbacks.cpp
+  main.cpp
+  Particle.cpp
+  ParticleGaussianGenerator.cpp
+  ParticleGenerator.cpp
+  ParticleUniformGenerator.cpp
+  Projectile.cpp
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "main.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+  vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Axis3D.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+  vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "callbacks.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+  vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+  vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Projectile.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+  vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+  vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Particle.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+  vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+  vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,20): warning C4596: '{ctor}': nombre completo no válido en la declaración de miembro
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,20): warning C4596: '{ctor}': nombre completo no válido en la declaración de miembro
+  (compilando archivo de origen "Projectile.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2061: error de sintaxis: identificador 'list'
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "Projectile.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2061: error de sintaxis: identificador 'list'
+  (compilando archivo de origen "Projectile.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,34): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "Projectile.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "Projectile.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "Projectile.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,34): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "Projectile.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,24): error C2039: "iterator": no es un miembro de "`global namespace'"
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,37): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "Projectile.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "Projectile.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "Projectile.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,24): error C2039: "iterator": no es un miembro de "`global namespace'"
+  (compilando archivo de origen "Projectile.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,37): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "Projectile.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.cpp(4,10): error C2661: 'Particle::Particle': ninguna función sobrecargada acepta 6 argumentos
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.cpp(4,10):
+  al hacer coincidir la lista de argumentos '(Vector3D<float>, Vector3D<float>, float, physx::PxGeometryType::Enum, float, physx::PxVec4)'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.cpp(17,10): error C2661: 'Particle::Particle': ninguna función sobrecargada acepta 6 argumentos
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.cpp(17,10):
+  al hacer coincidir la lista de argumentos '(Vector3D<float>, Vector3D<float>, float, physx::PxGeometryType::Enum, float, physx::PxVec4)'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.cpp(33,48): warning C4458: la declaración de 'realSpeed' oculta el miembro de clase
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.h(23,8):
+  vea la declaración de 'Projectile::realSpeed'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.cpp(33,65): warning C4458: la declaración de 'simulatedSpeed' oculta el miembro de clase
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.h(24,8):
+  vea la declaración de 'Projectile::simulatedSpeed'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.cpp(33,87): warning C4458: la declaración de 'realMass' oculta el miembro de clase
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.h(25,8):
+  vea la declaración de 'Projectile::realMass'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.cpp(35,18): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.cpp(38,51): warning C4458: la declaración de 'realSpeed' oculta el miembro de clase
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.h(23,8):
+  vea la declaración de 'Projectile::realSpeed'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.cpp(38,68): warning C4458: la declaración de 'simulatedSpeed' oculta el miembro de clase
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.h(24,8):
+  vea la declaración de 'Projectile::simulatedSpeed'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.cpp(40,11): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.cpp(43,54): warning C4458: la declaración de 'mass' oculta el miembro de clase
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(42,8):
+  vea la declaración de 'Particle::mass'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Projectile.cpp(45,23): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,20): warning C4596: '{ctor}': nombre completo no válido en la declaración de miembro
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2061: error de sintaxis: identificador 'list'
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,20): warning C4596: '{ctor}': nombre completo no válido en la declaración de miembro
+  (compilando archivo de origen "Particle.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "Particle.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2061: error de sintaxis: identificador 'list'
+  (compilando archivo de origen "Particle.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,34): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,24): error C2039: "iterator": no es un miembro de "`global namespace'"
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,37): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "Particle.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "Particle.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "Particle.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,34): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "Particle.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "Particle.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "Particle.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "Particle.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,24): error C2039: "iterator": no es un miembro de "`global namespace'"
+  (compilando archivo de origen "Particle.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,37): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "Particle.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,20): warning C4596: '{ctor}': nombre completo no válido en la declaración de miembro
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2061: error de sintaxis: identificador 'list'
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,34): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,24): error C2039: "iterator": no es un miembro de "`global namespace'"
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,37): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  
+  RainGenerator.cpp
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(12,3): warning C4265: "ParticleGenerator": la clase tiene funciones virtuales, pero su destructor no trivial no es virtual; puede que las instancias de esta clase no se destruyan correctamente
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(14,17): warning C4458: la declaración de 'id' oculta el miembro de clase
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(20,6):
+  vea la declaración de 'ParticleGenerator::id'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleUniformGenerator.h(10,3): warning C4265: "ParticleUniformGenerator": la clase tiene funciones virtuales, pero su destructor no trivial no es virtual; puede que las instancias de esta clase no se destruyan correctamente
+  (compilando archivo de origen "ParticleUniformGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleUniformGenerator.cpp(33,23): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleUniformGenerator.cpp(36,15): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleUniformGenerator.cpp(66,23): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(12,3): warning C4265: "ParticleGenerator": la clase tiene funciones virtuales, pero su destructor no trivial no es virtual; puede que las instancias de esta clase no se destruyan correctamente
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(14,17): warning C4458: la declaración de 'id' oculta el miembro de clase
+  (compilando archivo de origen "ParticleGenerator.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(20,6):
+  vea la declaración de 'ParticleGenerator::id'
+  
+  RenderUtils.cpp
+  Camera.cpp
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(12,3): warning C4265: "ParticleGenerator": la clase tiene funciones virtuales, pero su destructor no trivial no es virtual; puede que las instancias de esta clase no se destruyan correctamente
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(14,17): warning C4458: la declaración de 'id' oculta el miembro de clase
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(20,6):
+  vea la declaración de 'ParticleGenerator::id'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGaussianGenerator.h(7,3): warning C4265: "ParticleGaussianGenerator": la clase tiene funciones virtuales, pero su destructor no trivial no es virtual; puede que las instancias de esta clase no se destruyan correctamente
+  (compilando archivo de origen "ParticleGaussianGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGaussianGenerator.cpp(40,23): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGaussianGenerator.cpp(43,15): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGaussianGenerator.cpp(73,23): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  Render.cpp
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Render\Camera.cpp(88,19): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Render\Camera.cpp(90,19): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Render/Render.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+  vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+  ParticleSystem.cpp
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "RenderUtils.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+  vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "RainGenerator.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+  vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(8,11): error C2511: 'Particle::Particle(Vector3D<float>,Vector3D<float>,float,const physx::PxGeometryType::Enum &,float,const physx::PxVec4 &)': la función miembro sobrecargada no se ha encontrado en 'Particle'
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(7,7):
+  vea la declaración de 'Particle'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(10,2): error C2597: referencia no válida a miembro no static 'Particle::tr'
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(38,22):
+  vea la declaración de 'Particle::tr'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(11,2): error C2597: referencia no válida a miembro no static 'Particle::velocity'
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(39,13):
+  vea la declaración de 'Particle::velocity'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(12,2): error C2597: referencia no válida a miembro no static 'Particle::aceleration'
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(40,13):
+  vea la declaración de 'Particle::aceleration'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(13,2): error C2597: referencia no válida a miembro no static 'Particle::mass'
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(42,8):
+  vea la declaración de 'Particle::mass'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(14,2): error C2597: referencia no válida a miembro no static 'Particle::damping'
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(44,9):
+  vea la declaración de 'Particle::damping'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(16,2): error C2597: referencia no válida a miembro no static 'Particle::lifeTime'
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(46,9):
+  vea la declaración de 'Particle::lifeTime'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(36,37): error C2597: referencia no válida a miembro no static 'Particle::tr'
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(38,22):
+  vea la declaración de 'Particle::tr'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(34,2): warning C4061: el enumerador 'physx::PxGeometryType::eCONVEXMESH' en el modificador de enumeración 'physx::PxGeometryType::Enum' no está controlado explícitamente por una etiqueta de caso
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PhysX_3.4\Include\geometry\PxGeometry.h(53,7):
+  vea la declaración de 'physx::PxGeometryType::Enum'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(34,2): warning C4061: el enumerador 'physx::PxGeometryType::eTRIANGLEMESH' en el modificador de enumeración 'physx::PxGeometryType::Enum' no está controlado explícitamente por una etiqueta de caso
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PhysX_3.4\Include\geometry\PxGeometry.h(53,7):
+  vea la declaración de 'physx::PxGeometryType::Enum'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(34,2): warning C4061: el enumerador 'physx::PxGeometryType::eHEIGHTFIELD' en el modificador de enumeración 'physx::PxGeometryType::Enum' no está controlado explícitamente por una etiqueta de caso
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PhysX_3.4\Include\geometry\PxGeometry.h(53,7):
+  vea la declaración de 'physx::PxGeometryType::Enum'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(34,2): warning C4061: el enumerador 'physx::PxGeometryType::eGEOMETRY_COUNT' en el modificador de enumeración 'physx::PxGeometryType::Enum' no está controlado explícitamente por una etiqueta de caso
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PhysX_3.4\Include\geometry\PxGeometry.h(53,7):
+  vea la declaración de 'physx::PxGeometryType::Enum'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(34,2): warning C4061: el enumerador 'physx::PxGeometryType::eINVALID' en el modificador de enumeración 'physx::PxGeometryType::Enum' no está controlado explícitamente por una etiqueta de caso
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PhysX_3.4\Include\geometry\PxGeometry.h(53,7):
+  vea la declaración de 'physx::PxGeometryType::Enum'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,20): warning C4596: '{ctor}': nombre completo no válido en la declaración de miembro
+  (compilando archivo de origen "main.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "main.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2061: error de sintaxis: identificador 'list'
+  (compilando archivo de origen "main.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "main.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "main.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "main.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,34): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "main.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "main.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "main.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "main.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,24): error C2039: "iterator": no es un miembro de "`global namespace'"
+  (compilando archivo de origen "main.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,37): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "main.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,20): warning C4596: '{ctor}': nombre completo no válido en la declaración de miembro
+  (compilando archivo de origen "RainGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "RainGenerator.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,26): error C2061: error de sintaxis: identificador 'list'
+  (compilando archivo de origen "RainGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "RainGenerator.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "RainGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "RainGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(48,34): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "RainGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,7): error C2039: "list": no es un miembro de "std"
+  (compilando archivo de origen "RainGenerator.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\iostream(18,1):
+  vea la declaración de 'std'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C2143: error de sintaxis: falta ';' delante de '<'
+  (compilando archivo de origen "RainGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  (compilando archivo de origen "RainGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,24): error C2039: "iterator": no es un miembro de "`global namespace'"
+  (compilando archivo de origen "RainGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(49,37): error C2238: símbolos (token) inesperados delante de ';'
+  (compilando archivo de origen "RainGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(12,3): warning C4265: "ParticleGenerator": la clase tiene funciones virtuales, pero su destructor no trivial no es virtual; puede que las instancias de esta clase no se destruyan correctamente
+  (compilando archivo de origen "RainGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(14,17): warning C4458: la declaración de 'id' oculta el miembro de clase
+  (compilando archivo de origen "RainGenerator.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(20,6):
+  vea la declaración de 'ParticleGenerator::id'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\RainGenerator.h(8,3): warning C4265: "RainGenerator": la clase tiene funciones virtuales, pero su destructor no trivial no es virtual; puede que las instancias de esta clase no se destruyan correctamente
+  (compilando archivo de origen "RainGenerator.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\RainGenerator.cpp(33,21): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\RainGenerator.cpp(34,20): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(329,1): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "ParticleSystem.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+  vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,20): warning C4596: '{ctor}': nombre completo no válido en la declaración de miembro
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(50,1): warning C4626: 'Particle': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(12,3): warning C4265: "ParticleGenerator": la clase tiene funciones virtuales, pero su destructor no trivial no es virtual; puede que las instancias de esta clase no se destruyan correctamente
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(14,17): warning C4458: la declaración de 'id' oculta el miembro de clase
+  (compilando archivo de origen "ParticleSystem.cpp")
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGenerator.h(20,6):
+  vea la declaración de 'ParticleGenerator::id'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleGaussianGenerator.h(7,3): warning C4265: "ParticleGaussianGenerator": la clase tiene funciones virtuales, pero su destructor no trivial no es virtual; puede que las instancias de esta clase no se destruyan correctamente
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleUniformGenerator.h(10,3): warning C4265: "ParticleUniformGenerator": la clase tiene funciones virtuales, pero su destructor no trivial no es virtual; puede que las instancias de esta clase no se destruyan correctamente
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\RainGenerator.h(8,3): warning C4265: "RainGenerator": la clase tiene funciones virtuales, pero su destructor no trivial no es virtual; puede que las instancias de esta clase no se destruyan correctamente
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.cpp(41,28): error C2665: 'Particle::Particle':ninguna función sobrecargada pudo convertir todos los tipos de argumento
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Particle.h(10,12):
+  puede ser 'Particle::Particle(std::list<Particle *,std::allocator<Particle *>> &,Vector3D<float>,Vector3D<float>,float,const physx::PxGeometryType::Enum &,float,const physx::PxVec4 &)'
+  	C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.cpp(41,28):
+  	'Particle::Particle(std::list<Particle *,std::allocator<Particle *>> &,Vector3D<float>,Vector3D<float>,float,const physx::PxGeometryType::Enum &,float,const physx::PxVec4 &)': el argumento 1 no puede convertirse de 'Vector3D<float>' a 'std::list<Particle *,std::allocator<Particle *>> &'
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.cpp(41,28):
+  al hacer coincidir la lista de argumentos '(Vector3D<float>, Vector3D<float>, float, const physx::PxGeometryType::Enum, float, const physx::PxVec4)'
+  
+C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Render\Render.cpp(132): warning C5045: El compilador insertará la mitigación de Spectre para la carga de memoria si se especificó el modificador /Qspectre
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\skeleton\Render\Render.cpp(121) : nota: el intervalo "nbPolys" del índice se comprobó por comparación en esta línea
+  C:\Users\lparr\OneDrive\Escritorio\Tercero\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\foundation\PxVec3.h(105) : nota: suministra la carga de memoria en esta línea

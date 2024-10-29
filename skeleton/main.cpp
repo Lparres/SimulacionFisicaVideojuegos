@@ -15,7 +15,7 @@
 #include "Projectile.h"
 #include "ParticleSystem.h"
 
-std::string display_text = "This is a test";
+std::string display_text = "";
 
 
 using namespace physx;
@@ -39,6 +39,7 @@ RenderItem* item1 = nullptr;
 Axis3D* axis = nullptr;
 ParticleSystem* particleSystem = nullptr;
 std::vector<Projectile*> projectileVector;
+std::list<Particle*> globalList;
 
 // Initialize physics engine
 void initPhysics(bool interactive)
@@ -68,7 +69,7 @@ void initPhysics(bool interactive)
 	// Creación de los ejes del mundo
 	axis = new Axis3D();
 
-	particleSystem = new ParticleSystem();
+	particleSystem = new ParticleSystem(globalList);
 
 	
 	particleSystem->AddGaussianGenerator(Vector3D<>(20, -20, 10), Vector3D<>(-0.4, 1, 0), 30, 5, 1);
@@ -91,6 +92,8 @@ void stepPhysics(bool interactive, double t)
 	particleSystem->Update(t);
 
 	for (Projectile* e : projectileVector) e->Integrate(t);
+
+	display_text = "Particles on scene: " + std::to_string(globalList.size());
 
 	gScene->fetchResults(true);
 }
@@ -128,7 +131,7 @@ void keyPress(unsigned char key, const PxTransform& camera)
 		
 		Vector3D<> initialPos(GetCamera()->getTransform().p.x, GetCamera()->getTransform().p.y, GetCamera()->getTransform().p.z);
 		Vector3D<> initialDir(GetCamera()->getDir().x, GetCamera()->getDir().y, GetCamera()->getDir().z);
-		projectileVector.push_back(new Projectile(250, 50, 1, 1, initialPos, initialDir));
+		projectileVector.push_back(new Projectile(globalList, 250, 50, 1, 1, initialPos, initialDir));
 		break;
 	}
 	default:

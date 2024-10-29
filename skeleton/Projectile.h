@@ -9,8 +9,8 @@ class Projectile : public Particle
 
 public:
 
-	Projectile(float realSpeed, float simulatedSpeed, float realMass, float realSize, Vector3D<> initialPosition, Vector3D<> direction);
-	Projectile(Vector3D<> realSpeed, Vector3D<> simulatedSpeed, float realMass, float realSize, Vector3D<> initialPosition);
+	Projectile(std::list<Particle*>& globalList, float realSpeed, float simulatedSpeed, float realMass, float realSize, Vector3D<> initialPosition, Vector3D<> direction);
+	Projectile(std::list<Particle*>& globalList, Vector3D<> realSpeed, Vector3D<> simulatedSpeed, float realMass, float realSize, Vector3D<> initialPosition);
 	~Projectile();
 
 	float CalculateEnergy(float speed, float mass) const;

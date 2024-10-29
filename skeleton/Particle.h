@@ -1,6 +1,7 @@
 #pragma once
 #include "Vector3D.h"
 #include <PxPhysicsAPI.h>
+#include <list>
 
 class RenderItem;
 
@@ -30,7 +31,7 @@ public:
 	void SetPosition(Vector3D<> pos) { tr->p = physx::PxVec3(pos.x, pos.y, pos.z); }
 	void SetMass(float m) { mass = m; };
 	
-	void AddForce(Vector3D<>);
+	void ApplyForce(Vector3D<>);
 
 protected: 
 	RenderItem* renderItem;
@@ -45,7 +46,7 @@ protected:
 
 	double lifeTime;
 
-	std::list<Particle*>& globalList;
+	std::list<Particle*>& globalListRef;
 	std::list<Particle*>::iterator myIt;
 };
 

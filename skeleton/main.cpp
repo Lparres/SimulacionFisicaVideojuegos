@@ -14,6 +14,7 @@
 #include "Particle.h"
 #include "Projectile.h"
 #include "ParticleSystem.h"
+#include "GravityForceGenerator.h"
 
 std::string display_text = "";
 
@@ -38,6 +39,7 @@ ContactReportCallback gContactReportCallback;
 RenderItem* item1 = nullptr;
 Axis3D* axis = nullptr;
 ParticleSystem* particleSystem = nullptr;
+GravityForceGenerator* gravityForceGenerator = nullptr;
 std::vector<Projectile*> projectileVector;
 std::list<Particle*> globalList;
 
@@ -70,7 +72,7 @@ void initPhysics(bool interactive)
 	axis = new Axis3D();
 
 	particleSystem = new ParticleSystem(globalList);
-
+	gravityForceGenerator = new GravityForceGenerator(globalList, Vector3D<>(0, -9.8, 0));
 	
 	particleSystem->AddGaussianGenerator(Vector3D<>(20, -20, 10), Vector3D<>(-0.4, 1, 0), 30, 5, 1);
 	particleSystem->AddUniformGenerator(Vector3D<>(30, 10, 10), Vector3D<>(-0.4, 1, 0), 30, 5, 1);
@@ -89,6 +91,7 @@ void stepPhysics(bool interactive, double t)
 
 	gScene->simulate(t);
 
+	gravityForceGenerator->ApplyForceToParticles(t);
 	particleSystem->Update(t);
 
 	for (Projectile* e : projectileVector) e->Integrate(t);
@@ -103,6 +106,7 @@ void stepPhysics(bool interactive, double t)
 void cleanupPhysics(bool interactive)
 {
 	delete particleSystem;
+	delete gravityForceGenerator;
 
 	PX_UNUSED(interactive);
 

@@ -6,10 +6,10 @@
 class GravityForceGenerator : public ForceGenerator
 {
 public:
-    GravityForceGenerator(std::list<Particle*>& globalList, Vector3D<> gravityaceleration);
+    GravityForceGenerator(Vector3D<> gravityaceleration);
     ~GravityForceGenerator();
 
-    void ApplyForceToParticles(double t) override;
+    void UpdateForce(Particle* p, double t) override;
 
 private:
     Vector3D<> gravityAceleration;

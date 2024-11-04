@@ -2,6 +2,7 @@
 #include "ParticleGaussianGenerator.h"
 #include "ParticleUniformGenerator.h"
 #include "RainGenerator.h"
+#include "GravityForceGenerator.h"
 
 ParticleSystem::ParticleSystem(std::list<Particle*>& globalList) :
 	globalListRef(globalList)
@@ -40,7 +41,7 @@ int ParticleSystem::AddRainGenerator(Vector3D<> position, float radius, int inte
 void ParticleSystem::AddParticle(Vector3D<> position, Vector3D<> velocity, float mass, const physx::PxGeometryType::Enum& geoType, float size, const physx::PxVec4& color)
 {
 	Particle* p = new Particle(globalListRef, position, velocity, mass, geoType, size, color);
-	//p->SetAceleration(Vector3D<>(0, -9.8, 0));
+	p->AddForceGenerator(new GravityForceGenerator(Vector3D<>(0, -9.8, 0)));
 	particles.push_back(p);
 }
 

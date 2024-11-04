@@ -2,8 +2,10 @@
 #include "Vector3D.h"
 #include <PxPhysicsAPI.h>
 #include <list>
+#include <vector>
 
 class RenderItem;
+class ForceGenerator;
 
 class Particle
 {
@@ -31,7 +33,10 @@ public:
 	void SetPosition(Vector3D<> pos) { tr->p = physx::PxVec3(pos.x, pos.y, pos.z); }
 	void SetMass(float m) { mass = m; };
 	
-	void ApplyForce(Vector3D<>);
+	void AddForceGenerator(ForceGenerator* fg);
+
+	void ApplyInstantForce(Vector3D<> f);
+	void ApplyContinuousForce(Vector3D<> f);
 
 protected: 
 	RenderItem* renderItem;
@@ -48,5 +53,7 @@ protected:
 
 	std::list<Particle*>& globalListRef;
 	std::list<Particle*>::iterator myIt;
+
+	std::vector<ForceGenerator*> forceGenerators;
 };
 

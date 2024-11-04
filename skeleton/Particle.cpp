@@ -1,5 +1,6 @@
 #include "Particle.h"
 
+#include "ForceGenerator.h"
 #include "RenderUtils.hpp"
 #include <cmath>
 
@@ -60,10 +61,24 @@ void Particle::Integrate(double t)
 
 void Particle::UpdateState(double t)
 {
+	for (auto fg : forceGenerators) {
+		fg->UpdateForce(this, t);
+	}
+
 	lifeTime += t;
 }
 
-void Particle::ApplyForce(Vector3D<> f)
+void Particle::AddForceGenerator(ForceGenerator* fg)
+{
+	forceGenerators.push_back(fg);
+}
+
+void Particle::ApplyInstantForce(Vector3D<> f)
 {
 	velocity = velocity + f / mass;
+}
+
+void Particle::ApplyContinuousForce(Vector3D<> f)
+{
+	aceleration = aceleration + f / mass;
 }

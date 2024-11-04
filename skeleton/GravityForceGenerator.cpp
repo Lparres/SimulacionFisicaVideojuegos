@@ -1,7 +1,7 @@
 #include "GravityForceGenerator.h"
 
-GravityForceGenerator::GravityForceGenerator(std::list<Particle*>& globalList, Vector3D<> gravityaceleration) :
-	ForceGenerator(globalList),
+GravityForceGenerator::GravityForceGenerator(Vector3D<> gravityaceleration) :
+	ForceGenerator(),
 	gravityAceleration(gravityaceleration)
 {
 }
@@ -10,9 +10,7 @@ GravityForceGenerator::~GravityForceGenerator()
 {
 }
 
-void GravityForceGenerator::ApplyForceToParticles(double t)
+void GravityForceGenerator::UpdateForce(Particle* p, double t)
 {
-	for (Particle* p : globalListRef) {
-		p->ApplyForce(gravityAceleration * t);
-	}
+	p->AddInstantForce(gravityAceleration * t);
 }

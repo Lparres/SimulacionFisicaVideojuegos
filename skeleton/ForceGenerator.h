@@ -6,15 +6,11 @@
 class ForceGenerator
 {
 public:
-	ForceGenerator(std::list<Particle*>& globalList) :
-	globalListRef(globalList)
-	{};
+	ForceGenerator() {};
 
 	~ForceGenerator() {};
 
-	virtual void ApplyForceToParticles(double t) = 0;
+	virtual void UpdateForce(Particle* p, double t) = 0;
 
-protected:
-	std::list<Particle*>& globalListRef;
 };
 

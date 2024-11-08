@@ -9,13 +9,12 @@ ParticleGaussianGenerator::ParticleGaussianGenerator(Vector3D<> position, Vector
     if (angleDelta != 0.0) 
         gaussianDistAngle = std::normal_distribution<>(0, angleDelta * (PI / 180));
     else
-        gaussianDistAngle = std::normal_distribution<>(0, std::numeric_limits<float>::min());
-
+        gaussianDistAngle = std::normal_distribution<>(0, (std::numeric_limits<float>::min)());
 
     if (speedDelta != 0.0)
         gaussianDistSpeed = std::normal_distribution<>(0, speedDelta);
     else
-        gaussianDistSpeed = std::normal_distribution<>(0, std::numeric_limits<float>::min());
+        gaussianDistSpeed = std::normal_distribution<>(0, (std::numeric_limits<float>::min)());
 }
 
 

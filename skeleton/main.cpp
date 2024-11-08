@@ -124,7 +124,10 @@ void keyPress(unsigned char key, const PxTransform& camera)
 
 	switch(toupper(key))
 	{
-	//case 'B': break;
+	case 'B': 
+		particleSystem->Explode();
+		
+		break;
 	//case ' ':	break;
 	case 'Z':
 	{

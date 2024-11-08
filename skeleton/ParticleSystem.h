@@ -4,6 +4,11 @@
 #include "Vector3D.h"
 #include <PxPhysicsAPI.h>
 
+#include "GravityForceGenerator.h"
+#include "WindForceGenerator.h"
+#include "WhirlwindForceGenerator.h"
+#include "ExplosionForceGenerator.h"
+
 class ParticleGenerator;
 class Particle;
 
@@ -29,10 +34,17 @@ public:
 
 	void Update(double t);
 
+	void Explode();
+
 private:
 	std::list<ParticleGenerator*> generators;
 	std::list<Particle*> particles;
 	std::list<Particle*>& globalListRef;
+
+	GravityForceGenerator* gravityForceGenerator;
+	WindForceGenerator* windForceGenerator;
+	WhirlwindForceGenerator* whirlwindForceGenerator;
+	ExplosionForceGenerator* explosionForceGenerator;
 
 	void GenerateParticles();
 	void KillParticles();

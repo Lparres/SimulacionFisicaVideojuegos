@@ -10,12 +10,9 @@ public:
 
 	void UpdateForce(Particle* p, double t) override;
 
-	void keyPress(unsigned char key, const physx::PxTransform& camera);
-
 private:
 	float explosionForce;
 	float explosionRadius;
 	Vector3D<> position;
-	bool explosionActive;
 };
 

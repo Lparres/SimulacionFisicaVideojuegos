@@ -54,6 +54,7 @@ protected:
 	std::list<Particle*>& globalListRef;
 	std::list<Particle*>::iterator myIt;
 
+	// vector de referencias a los generadores de fuerzas del sistema de partículas
 	std::vector<ForceGenerator*> forceGenerators;
 };
 

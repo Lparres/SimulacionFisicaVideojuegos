@@ -12,5 +12,5 @@ GravityForceGenerator::~GravityForceGenerator()
 
 void GravityForceGenerator::UpdateForce(Particle* p, double t)
 {
-	p->AddInstantForce(gravityAceleration * t);
+	p->ApplyInstantForce(gravityAceleration * t * p->GetMass());
 }

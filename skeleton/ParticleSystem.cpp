@@ -3,6 +3,9 @@
 #include "ParticleUniformGenerator.h"
 #include "RainGenerator.h"
 #include "GravityForceGenerator.h"
+#include "WindForceGenerator.h"
+#include "WhirlwindForceGenerator.h"
+#include "ExplosionForceGenerator.h"
 
 ParticleSystem::ParticleSystem(std::list<Particle*>& globalList) :
 	globalListRef(globalList)
@@ -41,7 +44,10 @@ int ParticleSystem::AddRainGenerator(Vector3D<> position, float radius, int inte
 void ParticleSystem::AddParticle(Vector3D<> position, Vector3D<> velocity, float mass, const physx::PxGeometryType::Enum& geoType, float size, const physx::PxVec4& color)
 {
 	Particle* p = new Particle(globalListRef, position, velocity, mass, geoType, size, color);
-	p->AddForceGenerator(new GravityForceGenerator(Vector3D<>(0, -9.8, 0)));
+	//p->AddForceGenerator(new GravityForceGenerator(Vector3D<>(0, -9.8, 0)));
+	//p->AddForceGenerator(new WindForceGenerator(Vector3D<>(0, 1, 0), 0, 0.5, Vector3D<>(0, 0, 0), 1000));
+	p->AddForceGenerator(new WhirlwindForceGenerator(1, 0.5, Vector3D<>(0, 0, 0), 1000));
+	p->AddForceGenerator(new ExplosionForceGenerator(10, 100, Vector3D<>(0, 0, 0)));
 	particles.push_back(p);
 }
 

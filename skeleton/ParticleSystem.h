@@ -7,8 +7,8 @@
 class ParticleGenerator;
 class Particle;
 
-#define MAX_DISTANCE 200
-#define MAX_LIFETIME 10
+#define MAX_DISTANCE 2000
+#define MAX_LIFETIME 100
 
 class ParticleSystem
 {

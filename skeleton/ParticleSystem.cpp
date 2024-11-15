@@ -10,7 +10,7 @@ ParticleSystem::ParticleSystem(std::list<Particle*>& globalList) :
 	gravityForceGenerator = new GravityForceGenerator(Vector3D<>(0, -9.8, 0));
 	windForceGenerator = new WindForceGenerator(Vector3D<>(0, 1, 0), 0, 0.5, Vector3D<>(0, 0, 0), 1000);
 	whirlwindForceGenerator = new WhirlwindForceGenerator(1, 0.5, Vector3D<>(0, 0, 0), 1000);
-	explosionForceGenerator = new ExplosionForceGenerator(100, 1000, Vector3D<>(0, 0, 0));
+	explosionForceGenerator = new ExplosionForceGenerator(500, 1000, Vector3D<>(0, 0, 10));
 }
 
 ParticleSystem::~ParticleSystem()
@@ -49,13 +49,15 @@ void ParticleSystem::AddParticle(Vector3D<> position, Vector3D<> velocity, float
 	p->AddForceGenerator(gravityForceGenerator);
 	//p->AddForceGenerator(windforceGenerator);
 	//p->AddForceGenerator(whirlwindForceGenerator);
-	//p->AddForceGenerator(explosionForceGenerator);
+	p->AddForceGenerator(explosionForceGenerator);
 	particles.push_back(p);
 }
 
 
 void ParticleSystem::Update(double t)
 {
+	explosionForceGenerator->UpdateGenerator(t);
+
 	GenerateParticles();
 	KillParticles();
 	UpdateParticles(t);
@@ -63,9 +65,7 @@ void ParticleSystem::Update(double t)
 
 void ParticleSystem::Explode()
 {
-	for (Particle* p : particles) {
-		explosionForceGenerator->UpdateForce(p, 0);
-	}
+	explosionForceGenerator->AddShockWave(1000);
 }
 
 void ParticleSystem::GenerateParticles()

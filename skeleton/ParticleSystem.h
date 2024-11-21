@@ -8,6 +8,8 @@
 #include "WindForceGenerator.h"
 #include "WhirlwindForceGenerator.h"
 #include "ExplosionForceGenerator.h"
+#include "SpringForceGenerator.h"
+#include "AnchoredSpringFG.h"
 
 class ParticleGenerator;
 class Particle;
@@ -36,10 +38,15 @@ public:
 
 	void Explode();
 
+	void Generate2ParticleSpring();
+	void GenerateAnchoredSpring();
+
 private:
 	std::list<ParticleGenerator*> generators;
 	std::list<Particle*> particles;
 	std::list<Particle*>& globalListRef;
+
+	std::list<ForceGenerator*> otherGenerators;
 
 	GravityForceGenerator* gravityForceGenerator;
 	WindForceGenerator* windForceGenerator;

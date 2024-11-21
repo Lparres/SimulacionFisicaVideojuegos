@@ -72,10 +72,12 @@ void initPhysics(bool interactive)
 
 	particleSystem = new ParticleSystem(globalList);
 	
-	particleSystem->AddGaussianGenerator(Vector3D<>(20, -20, 10), Vector3D<>(1, 0, 0), 30, 5, 1);
-	particleSystem->AddUniformGenerator(Vector3D<>(0, 0, 0), Vector3D<>(-0.4, 1, 0), 10, 5, 1);
-	particleSystem->AddRainGenerator(Vector3D<>(0, 150, 0), 100, 10);
+	//particleSystem->AddGaussianGenerator(Vector3D<>(20, -20, 10), Vector3D<>(1, 0, 0), 30, 5, 1);
+	//particleSystem->AddUniformGenerator(Vector3D<>(0, 0, 0), Vector3D<>(-0.4, 1, 0), 10, 5, 1);
+	//particleSystem->AddRainGenerator(Vector3D<>(0, 150, 0), 100, 10);
 
+	//particleSystem->Generate2ParticleSpring();
+	particleSystem->GenerateAnchoredSpring();
 
 	}
 

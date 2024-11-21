@@ -68,6 +68,34 @@ void ParticleSystem::Explode()
 	explosionForceGenerator->AddShockWave(1000);
 }
 
+void ParticleSystem::Generate2ParticleSpring()
+{
+	Particle* p1 = new Particle(globalListRef, Vector3D<>(-10, 0, 0), Vector3D<>(0, 0, 0), 1, physx::PxGeometryType::Enum::eSPHERE, 1, physx::PxVec4(0.0, 1.0, 1.0, 1.0));
+	Particle* p2 = new Particle(globalListRef, Vector3D<>(10, 0, 0), Vector3D<>(0, 0, 0), 1, physx::PxGeometryType::Enum::eSPHERE, 1, physx::PxVec4(1.0, 0.0, 1.0, 1.0));
+
+	SpringForceGenerator* fg1 = new SpringForceGenerator(1, 10, p2);
+	SpringForceGenerator* fg2 = new SpringForceGenerator(1, 10, p1);
+
+	p1->AddForceGenerator(fg1);
+	p2->AddForceGenerator(fg2);
+
+	particles.push_back(p1);
+	particles.push_back(p2);
+	otherGenerators.push_back(fg1);
+	otherGenerators.push_back(fg2);
+}
+
+void ParticleSystem::GenerateAnchoredSpring()
+{
+	Particle* p = new Particle(globalListRef, Vector3D<>(-10, 0, 0), Vector3D<>(0, 0, 0), 1, physx::PxGeometryType::Enum::eSPHERE, 1, physx::PxVec4(0.0, 1.0, 1.0, 1.0));
+	AnchoredSpringFG* fg = new AnchoredSpringFG(globalListRef, 1, 10, Vector3D<>(10, 0, 0));
+
+	p->AddForceGenerator(fg);
+
+	particles.push_back(p);
+	otherGenerators.push_back(fg);
+}
+
 void ParticleSystem::GenerateParticles()
 {
 	for (ParticleGenerator* gen : generators) {

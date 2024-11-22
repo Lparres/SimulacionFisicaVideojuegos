@@ -96,6 +96,23 @@ void ParticleSystem::GenerateAnchoredSpring()
 	otherGenerators.push_back(fg);
 }
 
+void ParticleSystem::GenerateBuoyancyDemo()
+{
+	Particle* p = new Particle(globalListRef, Vector3D<>(0, 20, 0), Vector3D<>(0, 0, 0), 1, physx::PxGeometryType::Enum::eBOX, 2, physx::PxVec4(0.0, 1.0, 1.0, 1.0));
+	Particle* plane = new Particle(globalListRef, Vector3D<>(0, 0, 0), 10, 10);
+
+	BuoyancyForceGenerator* fg = new BuoyancyForceGenerator(2, 1, 1.5, plane);
+
+	p->AddForceGenerator(fg);
+	p->AddForceGenerator(gravityForceGenerator);
+	p->AddForceGenerator(windForceGenerator);
+
+	particles.push_back(p);
+	particles.push_back(plane);
+	otherGenerators.push_back(fg);
+
+}
+
 void ParticleSystem::GenerateParticles()
 {
 	for (ParticleGenerator* gen : generators) {

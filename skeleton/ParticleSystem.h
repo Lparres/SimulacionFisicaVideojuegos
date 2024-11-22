@@ -10,6 +10,7 @@
 #include "ExplosionForceGenerator.h"
 #include "SpringForceGenerator.h"
 #include "AnchoredSpringFG.h"
+#include "BuoyancyForceGenerator.h"
 
 class ParticleGenerator;
 class Particle;
@@ -40,6 +41,8 @@ public:
 
 	void Generate2ParticleSpring();
 	void GenerateAnchoredSpring();
+
+	void GenerateBuoyancyDemo();
 
 private:
 	std::list<ParticleGenerator*> generators;

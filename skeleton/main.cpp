@@ -77,8 +77,9 @@ void initPhysics(bool interactive)
 	//particleSystem->AddRainGenerator(Vector3D<>(0, 150, 0), 100, 10);
 
 	//particleSystem->Generate2ParticleSpring();
-	particleSystem->GenerateAnchoredSpring();
-
+	//particleSystem->GenerateAnchoredSpring();
+	
+	particleSystem->GenerateBuoyancyDemo();
 	}
 
 

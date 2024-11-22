@@ -3,6 +3,7 @@
 #include "ForceGenerator.h"
 #include "RenderUtils.hpp"
 #include <cmath>
+#include <limits>
 
 using namespace physx;
 
@@ -38,6 +39,23 @@ Particle::Particle(std::list<Particle*>& globalList, Vector3D<> pos, Vector3D<> 
 	}
 
 	renderItem = new RenderItem(shape, tr, color);
+}
+
+// For plane (buoyancy)
+Particle::Particle(std::list<Particle*>& globalList, Vector3D<> position, float sizeX, float sizeZ, const physx::PxVec4& color) :
+	globalListRef(globalList)
+{
+	globalListRef.push_back(this);
+	myIt = std::prev(globalListRef.end());
+	tr = new PxTransform(PxVec3(position.x, position.y, position.z));
+
+	velocity = Vector3D<>();
+	aceleration = Vector3D<>();
+	mass = -10000;
+	damping = 0;
+	lifeTime = -10000;
+
+	renderItem = new RenderItem(CreateShape(PxBoxGeometry(sizeX, 0.1, sizeZ)), tr, color);
 }
 
 Particle::~Particle()

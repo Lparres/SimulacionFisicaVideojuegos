@@ -17,6 +17,13 @@ public:
 					   const physx::PxGeometryType::Enum& geoType = physx::PxGeometryType::Enum::eSPHERE, 
 					   float size = 1, 
 					   const physx::PxVec4& color = physx::PxVec4(1.0, 1.0, 0.0, 1.0));
+
+	// For a plane (buoyancy)
+	Particle::Particle(std::list<Particle*>& globalList,
+		Vector3D<> position,
+		float sizeX,
+		float sizeZ,
+		const physx::PxVec4& color = physx::PxVec4(0.1, 0.1, 1.0, 1.0));
 	~Particle();
 
 	void Integrate(double t);

@@ -494,6 +494,7 @@
     <ClCompile Include="Render\Render.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="SpringForceGenerator.cpp" />
+    <ClCompile Include="Submarine.cpp" />
     <ClCompile Include="WhirlwindForceGenerator.cpp" />
     <ClCompile Include="WindForceGenerator.cpp" />
   </ItemGroup>
@@ -517,6 +518,7 @@
     <ClInclude Include="Render\Render.h" />
     <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="SpringForceGenerator.h" />
+    <ClInclude Include="Submarine.h" />
     <ClInclude Include="Vector3D.h" />
     <ClInclude Include="WhirlwindForceGenerator.h" />
     <ClInclude Include="WindForceGenerator.h" />

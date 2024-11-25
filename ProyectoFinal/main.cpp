@@ -16,6 +16,8 @@
 #include "ParticleSystem.h"
 #include "GravityForceGenerator.h"
 
+#include "Submarine.h"
+
 std::string display_text = "";
 
 
@@ -42,11 +44,15 @@ ParticleSystem* particleSystem = nullptr;
 std::vector<Projectile*> projectileVector;
 std::list<Particle*> globalList;
 
+Submarine* submarine;
+
 // Initialize physics engine
 void initPhysics(bool interactive)
 {
 	PX_UNUSED(interactive);
 
+
+	// Inicialización de Physx
 	gFoundation = PxCreateFoundation(PX_FOUNDATION_VERSION, gAllocator, gErrorCallback);
 
 	gPvd = PxCreatePvd(*gFoundation);
@@ -57,9 +63,9 @@ void initPhysics(bool interactive)
 
 	gMaterial = gPhysics->createMaterial(0.5f, 0.5f, 0.6f);
 
-	// For Solid Rigids +++++++++++++++++++++++++++++++++++++
+	// Creamos una escena (PxScene) para definir nuestros sóidos rígidos
 	PxSceneDesc sceneDesc(gPhysics->getTolerancesScale());
-	sceneDesc.gravity = PxVec3(0.0f, -9.8f, 0.0f);
+	sceneDesc.gravity = PxVec3(0.0f, 0.0f, 0.0f);							// NO HAY GRAVEDAD
 	gDispatcher = PxDefaultCpuDispatcherCreate(2);
 	sceneDesc.cpuDispatcher = gDispatcher;
 	sceneDesc.filterShader = contactReportFilterShader;
@@ -70,6 +76,25 @@ void initPhysics(bool interactive)
 	// Creación de los ejes del mundo
 	axis = new Axis3D();
 
+	// Generar suelo
+	PxRigidStatic* suelo;
+	suelo = gPhysics->createRigidStatic(PxTransform({ 0, 0, 0 }));	// Definimos una posición
+	PxShape* shape = CreateShape(PxBoxGeometry(100, 0.1, 100));		// Definimos una forma
+	suelo->attachShape(*shape);
+	gScene->addActor(*suelo);	// Añadimos el elemento a la escena gScene
+
+	// Pintar suelo
+	RenderItem* renderSuelo;
+	renderSuelo = new RenderItem(shape, suelo, { 0.8, 0.8, 0.8, 1 });
+
+
+	submarine = new Submarine(PxTransform({ 0, 40, 0 }), 5329.58, gPhysics, gScene);
+
+
+
+
+
+
 	particleSystem = new ParticleSystem(globalList);
 	
 	//particleSystem->AddGaussianGenerator(Vector3D<>(20, -20, 10), Vector3D<>(1, 0, 0), 30, 5, 1);
@@ -79,7 +104,7 @@ void initPhysics(bool interactive)
 	//particleSystem->Generate2ParticleSpring();
 	//particleSystem->GenerateAnchoredSpring();
 	
-	particleSystem->GenerateBuoyancyDemo();
+	//particleSystem->GenerateBuoyancyDemo();
 	}
 
 
@@ -90,7 +115,13 @@ void stepPhysics(bool interactive, double t)
 {
 	PX_UNUSED(interactive);
 
+	//std::list<Particle*>::iterator it = globalList.begin();
+	//GetCamera()->mEye = PxVec3((*it)->GetPosition().x, (*it)->GetPosition().y, (*it)->GetPosition().z);
+
 	gScene->simulate(t);
+
+	submarine->UpdateBuoyancyForce(t);
+	submarine->UpdateGravityForce(t);
 
 	particleSystem->Update(t);
 

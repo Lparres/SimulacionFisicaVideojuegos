@@ -88,11 +88,10 @@ void initPhysics(bool interactive)
 	renderSuelo = new RenderItem(shape, suelo, { 0.8, 0.8, 0.8, 1 });
 
 
-	submarine = new Submarine(PxTransform({ 0, 40, 0 }), 5329.58, gPhysics, gScene);
+	submarine = new Submarine(PxTransform({ 0, 40, 0 }), 34557.5, gPhysics, gScene);
 
 
-
-
+	RenderItem* agua = new RenderItem(CreateShape(PxBoxGeometry(100, 0.1, 100)), new PxTransform(PxVec3(0, 50, 0)), { 0, 0, 0.5, 1 });
 
 
 	particleSystem = new ParticleSystem(globalList);
@@ -120,14 +119,13 @@ void stepPhysics(bool interactive, double t)
 
 	gScene->simulate(t);
 
-	submarine->UpdateBuoyancyForce(t);
-	submarine->UpdateGravityForce(t);
+	submarine->UpdateForces(t);
 
 	particleSystem->Update(t);
 
 	for (Projectile* e : projectileVector) e->Integrate(t);
 
-	display_text = "Particles on scene: " + std::to_string(globalList.size());
+	display_text = "Submarine density: " + std::to_string(submarine->GetDensity());
 
 	gScene->fetchResults(true);
 }
@@ -158,11 +156,14 @@ void keyPress(unsigned char key, const PxTransform& camera)
 
 	switch(toupper(key))
 	{
-	case 'B': 
-		particleSystem->Explode();
+	case 'M': 
+		submarine->ChangeMass(100);
 		
 		break;
-	//case ' ':	break;
+	case 'N':
+		submarine->ChangeMass(-100);
+		
+		break;
 	case 'Z':
 	{
 		

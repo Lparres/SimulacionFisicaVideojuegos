@@ -10,11 +10,8 @@ Submarine::Submarine(physx::PxTransform transform, float m, PxPhysics* physics, 
 
 	rigidBody->setLinearVelocity({ 0, 0, 0 });								// Definimos velocidad lienal
 	rigidBody->setAngularVelocity({ 0, 0, 0 });								// Definimos velocidad angular
-
-	radius = 10;
-	height = 50;
+	
 	mass = m;
-	volume = 3.141592 * pow(radius, 2) * height * 2 + (4 / 3 * 3.141592 * pow(radius, 3));
 
 	shape = CreateShape(PxCapsuleGeometry(radius, height));							// Definimos una forma
 	rigidBody->attachShape(*shape);
@@ -28,6 +25,13 @@ Submarine::Submarine(physx::PxTransform transform, float m, PxPhysics* physics, 
 	renderSubmarino = new RenderItem(shape, rigidBody, { 1, 1, 1, 1 });
 }
 
+void Submarine::UpdateForces(double t)
+{
+	UpdateBuoyancyForce(t);
+	UpdateGravityForce(t);
+	UpdateDragForce(t);
+}
+
 void Submarine::UpdateBuoyancyForce(double t)
 {
 	float h = rigidBody->getGlobalPose().p.y;
@@ -36,10 +40,10 @@ void Submarine::UpdateBuoyancyForce(double t)
 	PxVec3 force(0, 0, 0);
 	float immersed = 0.0;
 
-	if (h - h0 > radius * 2 * 0.5) {
+	if (h - h0 > radius) {
 		immersed = 0.0;
 	}
-	else if (h - h0 < radius * 2 * 0.5) {
+	else if (h - h0 < radius * -1) {
 		// Totally immersed
 		immersed = 1.0;
 	}
@@ -47,14 +51,27 @@ void Submarine::UpdateBuoyancyForce(double t)
 		immersed = ((h0 - h) / (radius * 2)) + 0.5;
 	}
 
-	force.y = 0.15 * volume * immersed * 9.8;
+	force.y = 1 * volume * immersed * 9.8;	// Liquid density * displaced volume * gravity aceleration
 
-	rigidBody->addForce(force * t);
+	rigidBody->addForce(force * t, physx::PxForceMode::eIMPULSE);
 	//rigidBody->addForce(rigidBody->getMass() * PxVec3(0, 9.8, 0));
-	std::cout << rigidBody->getMass() << "\n";
+	//std::cout << "Fuerza de flotacion: " << force.y << "\n";
+	std::cout << "Velocity: " << rigidBody->getLinearVelocity().y << "\n";
 }
 
 void Submarine::UpdateGravityForce(double t)
 {
-	rigidBody->addForce(PxVec3(0, -9.8, 0) * mass * t );
+	PxVec3 force(0, 0, 0);
+
+	force.y = -9.8 * mass;
+
+	rigidBody->addForce(force * t, physx::PxForceMode::eIMPULSE);
+	//std::cout << "Fuerza de gravedad: " << -9.8 * mass << "\n";
+
+}
+
+void Submarine::UpdateDragForce(double t)
+{
+	PxVec3 force = -1 * rigidBody->getLinearVelocity() * volume * 0.3; // Aproximación de la fuerza de rozamiento
+	rigidBody->addForce(force * t, physx::PxForceMode::eIMPULSE);
 }

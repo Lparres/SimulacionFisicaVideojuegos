@@ -3,6 +3,7 @@
 #include <PxPhysicsAPI.h>
 #include "RenderUtils.hpp"
 
+
 class Submarine
 {
 public:
@@ -16,6 +17,7 @@ private:
 	void UpdateBuoyancyForce(double t);
 	void UpdateGravityForce(double t);
 	void UpdateDragForce(double t);
+	void UpdateMovementForce(double t);
 
 public:
 	 float GetDensity() const { return mass / volume; }
@@ -35,5 +37,7 @@ public:
 	float mass;
 
 	RenderItem* renderItem;
+
+	physx::PxVec3 movementDirection;
 };
 

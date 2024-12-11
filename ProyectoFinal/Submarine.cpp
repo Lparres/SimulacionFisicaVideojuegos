@@ -23,6 +23,8 @@ Submarine::Submarine(physx::PxTransform transform, float m, PxPhysics* physics, 
 	// Pintar submarino
 	RenderItem* renderSubmarino;
 	renderSubmarino = new RenderItem(shape, rigidBody, { 1, 1, 1, 1 });
+
+	movementDirection = PxVec3(0, 0, 0);
 }
 
 void Submarine::UpdateForces(double t)
@@ -30,6 +32,7 @@ void Submarine::UpdateForces(double t)
 	UpdateBuoyancyForce(t);
 	UpdateGravityForce(t);
 	UpdateDragForce(t);
+	UpdateMovementForce(t);
 }
 
 void Submarine::UpdateBuoyancyForce(double t)
@@ -56,7 +59,7 @@ void Submarine::UpdateBuoyancyForce(double t)
 	rigidBody->addForce(force * t, physx::PxForceMode::eIMPULSE);
 	//rigidBody->addForce(rigidBody->getMass() * PxVec3(0, 9.8, 0));
 	//std::cout << "Fuerza de flotacion: " << force.y << "\n";
-	std::cout << "Velocity: " << rigidBody->getLinearVelocity().y << "\n";
+	std::cout << "Velocity: " << rigidBody->getLinearVelocity().x << "\n";
 }
 
 void Submarine::UpdateGravityForce(double t)
@@ -73,5 +76,11 @@ void Submarine::UpdateGravityForce(double t)
 void Submarine::UpdateDragForce(double t)
 {
 	PxVec3 force = -1 * rigidBody->getLinearVelocity() * volume * 0.3; // Aproximación de la fuerza de rozamiento
+	rigidBody->addForce(force * t, physx::PxForceMode::eIMPULSE);
+}
+
+void Submarine::UpdateMovementForce(double t)
+{
+	PxVec3 force = movementDirection * mass;	// La fuerza del motor depende de la masa del submarino.
 	rigidBody->addForce(force * t, physx::PxForceMode::eIMPULSE);
 }

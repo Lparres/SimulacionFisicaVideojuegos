@@ -91,7 +91,7 @@ void initPhysics(bool interactive)
 	submarine = new Submarine(PxTransform({ 0, 40, 0 }), 34557.5, gPhysics, gScene);
 
 
-	RenderItem* agua = new RenderItem(CreateShape(PxBoxGeometry(100, 0.1, 100)), new PxTransform(PxVec3(0, 50, 0)), { 0, 0, 0.5, 1 });
+	RenderItem* agua = new RenderItem(CreateShape(PxBoxGeometry(10, 0.1, 100)), new PxTransform(PxVec3(0, 50, 0)), { 0, 0, 0.5, 1 });
 
 
 	particleSystem = new ParticleSystem(globalList);
@@ -114,8 +114,10 @@ void stepPhysics(bool interactive, double t)
 {
 	PX_UNUSED(interactive);
 
-	//std::list<Particle*>::iterator it = globalList.begin();
-	//GetCamera()->mEye = PxVec3((*it)->GetPosition().x, (*it)->GetPosition().y, (*it)->GetPosition().z);
+	PxVec3 cameraPos = PxVec3(submarine->GetRigidBody()->getGlobalPose().p) + PxVec3(-120, 80, 0);
+	GetCamera()->mEye = cameraPos;
+	GetCamera()->mDir = PxVec3(0.80, -0.5, 0).getNormalized();
+	std::cout << GetCamera()->mDir.x << " " << GetCamera()->mDir.y << " " << GetCamera()->mDir.z << "\n";
 
 	gScene->simulate(t);
 
@@ -164,6 +166,31 @@ void keyPress(unsigned char key, const PxTransform& camera)
 		submarine->ChangeMass(-100);
 		
 		break;
+
+	// Control del motor
+	case 'Q':
+		submarine->movementDirection = PxVec3(1, 0, 0);
+		break;
+	case 'W':
+		submarine->movementDirection = PxVec3(2, 0, 0);
+		break;
+	case 'E':
+		submarine->movementDirection = PxVec3(3, 0, 0);
+		break;
+	case 'A':
+		submarine->movementDirection = PxVec3(-1, 0, 0);
+		break;
+	case 'S':
+		submarine->movementDirection = PxVec3(-2, 0, 0);
+		break;
+	case 'D':
+		submarine->movementDirection = PxVec3(-3, 0, 0);
+		break;
+	case 'X':
+		submarine->movementDirection = PxVec3(0, 0, 0);
+		break;
+
+
 	case 'Z':
 	{
 		

@@ -11,12 +11,12 @@ Submarine::Submarine(physx::PxTransform transform, float m, PxPhysics* physics, 
 	rigidBody->setLinearVelocity({ 0, 0, 0 });								// Definimos velocidad lienal
 	rigidBody->setAngularVelocity({ 0, 0, 0 });								// Definimos velocidad angular
 	
-	mass = m;
+	baseMass = m;
 
 	shape = CreateShape(PxCapsuleGeometry(radius, height));							// Definimos una forma
 	rigidBody->attachShape(*shape);
 
-	PxRigidBodyExt::updateMassAndInertia(*rigidBody, mass/volume);			// Definimos la distribución de masas
+	PxRigidBodyExt::updateMassAndInertia(*rigidBody, baseMass/volume);			// Definimos la distribución de masas
 
 	scene->addActor(*rigidBody);
 
@@ -25,6 +25,11 @@ Submarine::Submarine(physx::PxTransform transform, float m, PxPhysics* physics, 
 	renderSubmarino = new RenderItem(shape, rigidBody, { 1, 1, 1, 1 });
 
 	movementDirection = PxVec3(0, 0, 0);
+
+	main_BallastTank = BallastTank(20000, 2000);
+	compensation_BallastTank = BallastTank(5000, 500);
+	quick_BallastTank = BallastTank(8000, 4000);
+
 }
 
 void Submarine::UpdateForces(double t)
@@ -33,6 +38,13 @@ void Submarine::UpdateForces(double t)
 	UpdateGravityForce(t);
 	UpdateDragForce(t);
 	UpdateMovementForce(t);
+}
+
+void Submarine::UpdateBallastTanks(double t)
+{
+	main_BallastTank.UpdateWaterVolume(t);
+	compensation_BallastTank.UpdateWaterVolume(t);
+	quick_BallastTank.UpdateWaterVolume(t);
 }
 
 void Submarine::UpdateBuoyancyForce(double t)
@@ -66,7 +78,7 @@ void Submarine::UpdateGravityForce(double t)
 {
 	PxVec3 force(0, 0, 0);
 
-	force.y = -9.8 * mass;
+	force.y = -9.8 * GetMass();
 
 	rigidBody->addForce(force * t, physx::PxForceMode::eIMPULSE);
 	//std::cout << "Fuerza de gravedad: " << -9.8 * mass << "\n";
@@ -81,6 +93,15 @@ void Submarine::UpdateDragForce(double t)
 
 void Submarine::UpdateMovementForce(double t)
 {
-	PxVec3 force = movementDirection * mass;	// La fuerza del motor depende de la masa del submarino.
+	PxVec3 force = movementDirection * GetMass();	// La fuerza del motor depende de la masa del submarino.
 	rigidBody->addForce(force * t, physx::PxForceMode::eIMPULSE);
+}
+
+float Submarine::GetMass() const
+{
+	return  
+		baseMass + 
+		main_BallastTank.GetMass() +
+		compensation_BallastTank.GetMass() +
+		quick_BallastTank.GetMass(); 
 }

@@ -18,7 +18,11 @@
 
 #include "Submarine.h"
 
-std::string display_text = "";
+std::string density_text = "";
+std::string main_Ballast_text = "";
+std::string compensation_Ballast_text = "";
+std::string quick_Ballast_text = "";
+
 
 
 using namespace physx;
@@ -85,13 +89,13 @@ void initPhysics(bool interactive)
 
 	// Pintar suelo
 	RenderItem* renderSuelo;
-	renderSuelo = new RenderItem(shape, suelo, { 0.8, 0.8, 0.8, 1 });
+	renderSuelo = new RenderItem(shape, suelo, { 0.1, 0.1, 0.1, 1 });
 
 
-	submarine = new Submarine(PxTransform({ 0, 40, 0 }), 34557.5, gPhysics, gScene);
+	submarine = new Submarine(PxTransform({ 0, 40, 0 }), 20000, gPhysics, gScene);	// 34557.5
 
 
-	RenderItem* agua = new RenderItem(CreateShape(PxBoxGeometry(10, 0.1, 100)), new PxTransform(PxVec3(0, 50, 0)), { 0, 0, 0.5, 1 });
+	RenderItem* agua = new RenderItem(CreateShape(PxBoxGeometry(1000, 0.01, 1000)), new PxTransform(PxVec3(0, 50, 0)), { 0, 0, 1, 0.1 });
 
 
 	particleSystem = new ParticleSystem(globalList);
@@ -122,12 +126,25 @@ void stepPhysics(bool interactive, double t)
 	gScene->simulate(t);
 
 	submarine->UpdateForces(t);
+	submarine->UpdateBallastTanks(t);
 
 	particleSystem->Update(t);
 
 	for (Projectile* e : projectileVector) e->Integrate(t);
 
-	display_text = "Submarine density: " + std::to_string(submarine->GetDensity());
+	density_text = "Submarine density: " + std::to_string(submarine->GetDensity());
+
+	main_Ballast_text = "(-N/M+) Main ballast: " + std::to_string(submarine->main_BallastTank.GetWaterPercentage()) + "%";
+	if (submarine->main_BallastTank.GetWaterGateOpen()) main_Ballast_text += " (Water OPEN) ";
+	if (submarine->main_BallastTank.GetAirGateOpen()) main_Ballast_text += " (Air OPEN) ";
+	
+	compensation_Ballast_text = "(-J/K+) Comp ballast: " + std::to_string(submarine->compensation_BallastTank.GetWaterPercentage()) + "%";
+	if (submarine->compensation_BallastTank.GetWaterGateOpen()) compensation_Ballast_text += " (Water OPEN) ";
+	if (submarine->compensation_BallastTank.GetAirGateOpen()) compensation_Ballast_text += " (Air OPEN) ";
+
+	quick_Ballast_text = "(-I/O+) Quick ballast: " + std::to_string(submarine->quick_BallastTank.GetWaterPercentage()) + "%";
+	if (submarine->quick_BallastTank.GetWaterGateOpen()) quick_Ballast_text += " (Water OPEN) ";
+	if (submarine->quick_BallastTank.GetAirGateOpen()) quick_Ballast_text += " (Air OPEN) ";
 
 	gScene->fetchResults(true);
 }
@@ -158,13 +175,23 @@ void keyPress(unsigned char key, const PxTransform& camera)
 
 	switch(toupper(key))
 	{
-	case 'M': 
-		submarine->ChangeMass(100);
-		
+	case 'N': 
+		submarine->main_BallastTank.SwitchAirGate();
 		break;
-	case 'N':
-		submarine->ChangeMass(-100);
-		
+	case 'M':
+		submarine->main_BallastTank.SwitchWaterGate();	
+		break;
+	case 'J':
+		submarine->compensation_BallastTank.SwitchAirGate();
+		break;
+	case 'K':
+		submarine->compensation_BallastTank.SwitchWaterGate();
+		break;
+	case 'I':
+		submarine->quick_BallastTank.SwitchAirGate();
+		break;
+	case 'O':
+		submarine->quick_BallastTank.SwitchWaterGate();
 		break;
 
 	// Control del motor

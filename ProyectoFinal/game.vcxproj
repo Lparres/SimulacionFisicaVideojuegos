@@ -477,6 +477,7 @@
   <ItemGroup>
     <ClCompile Include="AnchoredSpringFG.cpp" />
     <ClCompile Include="Axis3D.cpp" />
+    <ClCompile Include="BallastTank.cpp" />
     <ClCompile Include="BuoyancyForceGenerator.cpp" />
     <ClCompile Include="callbacks.cpp" />
     <ClCompile Include="ExplosionForceGenerator.cpp" />
@@ -501,6 +502,7 @@
   <ItemGroup>
     <ClInclude Include="AnchoredSpringFG.h" />
     <ClInclude Include="Axis3D.h" />
+    <ClInclude Include="BallastTank.h" />
     <ClInclude Include="BuoyancyForceGenerator.h" />
     <ClInclude Include="callbacks.hpp" />
     <ClInclude Include="core.hpp" />

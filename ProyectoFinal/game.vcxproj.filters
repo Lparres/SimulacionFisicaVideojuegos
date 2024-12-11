@@ -27,6 +27,7 @@
     <ClCompile Include="AnchoredSpringFG.cpp" />
     <ClCompile Include="BuoyancyForceGenerator.cpp" />
     <ClCompile Include="Submarine.cpp" />
+    <ClCompile Include="BallastTank.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core.hpp" />
@@ -56,6 +57,7 @@
     <ClInclude Include="AnchoredSpringFG.h" />
     <ClInclude Include="BuoyancyForceGenerator.h" />
     <ClInclude Include="Submarine.h" />
+    <ClInclude Include="BallastTank.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">

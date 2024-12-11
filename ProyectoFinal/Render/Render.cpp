@@ -288,7 +288,11 @@ void startRender(const PxVec3& cameraEye, const PxVec3& cameraDir, PxReal clipNe
 
 	// Display text
 	glColor4f(1.0f, 0.2f, 0.2f, 1.0f);
-	drawText(display_text, 0, 0);
+	drawText(density_text, 0, 0);
+	drawText(main_Ballast_text, 0, 20);
+	drawText(compensation_Ballast_text, 0, 35);
+	drawText(quick_Ballast_text, 0, 50);
+
 
 	// Setup camera
 	glMatrixMode(GL_PROJECTION);
@@ -306,6 +310,10 @@ void startRender(const PxVec3& cameraEye, const PxVec3& cameraDir, PxReal clipNe
 
 void renderShape(const PxShape& shape, const PxTransform& transform, const PxVec4& color)
 {
+	// Habilitar blending para soportar transparencia
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	PxGeometryHolder h = shape.getGeometry();
 
 	if (shape.getFlags() & PxShapeFlag::eTRIGGER_SHAPE)
@@ -316,22 +324,30 @@ void renderShape(const PxShape& shape, const PxTransform& transform, const PxVec
 	PxMat44 mtx(transform);
 	glMultMatrixf(reinterpret_cast<const float*>(&mtx));
 	assert(glGetError() == GL_NO_ERROR);
-	glColor4f(color.x, color.y, color.z, 1.0f);
+	glColor4f(color.x, color.y, color.z,color.w);
 	assert(glGetError() == GL_NO_ERROR);
-	renderGeometry(h, color.w < 0.999f);
+	renderGeometry(h, false);
 	assert(glGetError() == GL_NO_ERROR);
 	glPopMatrix();
 	assert(glGetError() == GL_NO_ERROR);
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	assert(glGetError() == GL_NO_ERROR);
+
+	// Deshabilitar blending después del renderizado
+	glDisable(GL_BLEND);
 }
 
 void renderActors(PxRigidActor** actors, const PxU32 numActors, bool shadows, const PxVec4 & color)
 {
+	// Habilitar blending para soportar transparencia
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	PxShape* shapes[MAX_NUM_ACTOR_SHAPES];
 	for(PxU32 i=0;i<numActors;i++)
 	{
+
 		const PxU32 nbShapes = actors[i]->getNbShapes();
 		PX_ASSERT(nbShapes <= MAX_NUM_ACTOR_SHAPES);
 		actors[i]->getShapes(shapes, nbShapes);
@@ -375,6 +391,9 @@ void renderActors(PxRigidActor** actors, const PxU32 numActors, bool shadows, co
 			}
 		}
 	}
+
+	// Deshabilitar blending después del renderizado
+	glDisable(GL_BLEND);
 }
 
 void finishRender()

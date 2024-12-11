@@ -47,7 +47,11 @@
 #endif
 #include <string>
 
-extern std::string display_text;
+extern std::string density_text;
+extern std::string main_Ballast_text;
+extern std::string compensation_Ballast_text;
+extern std::string quick_Ballast_text;
+
 
 namespace Snippets
 {

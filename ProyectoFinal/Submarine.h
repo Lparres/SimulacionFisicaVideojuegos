@@ -2,6 +2,7 @@
 
 #include <PxPhysicsAPI.h>
 #include "RenderUtils.hpp"
+#include "BallastTank.h"
 
 
 class Submarine
@@ -13,6 +14,8 @@ public:
 
 	void UpdateForces(double t);
 
+	void UpdateBallastTanks(double t);
+
 private:
 	void UpdateBuoyancyForce(double t);
 	void UpdateGravityForce(double t);
@@ -20,21 +23,27 @@ private:
 	void UpdateMovementForce(double t);
 
 public:
-	 float GetDensity() const { return mass / volume; }
-	 float GetMass() const { return mass; }
+	 float GetDensity() const { return GetMass() / volume; }
+	 float GetMass() const;
 	 float GetVolume() const { return volume; }
 
-	 void SetMass(float newMass) { mass = newMass; }
-	 void ChangeMass(float massDiff) { mass += massDiff; }
+	 void SetBaseMass(float newMass) { baseMass = newMass; }
+	 void ChangeBaseMass(float massDiff) { baseMass += massDiff; }
 
 	physx::PxRigidDynamic* rigidBody;
 	physx::PxShape* shape;
 
+private:
 	const float radius = 10;
 	const float height = 50;
 	const float volume = 3.141592 * pow(radius, 2) * height * 2 + (4 / 3 * 3.141592 * pow(radius, 3));
 
-	float mass;
+	float baseMass;
+public:
+	BallastTank main_BallastTank;
+	BallastTank compensation_BallastTank;
+	BallastTank quick_BallastTank;
+
 
 	RenderItem* renderItem;
 

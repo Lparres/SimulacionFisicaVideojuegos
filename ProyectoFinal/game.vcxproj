@@ -484,6 +484,7 @@
     <ClCompile Include="ForceGenerator.cpp" />
     <ClCompile Include="GravityForceGenerator.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="ParticleGaussianGenerator.cpp" />
     <ClCompile Include="ParticleGenerator.cpp" />
@@ -494,8 +495,10 @@
     <ClCompile Include="Render\Camera.cpp" />
     <ClCompile Include="Render\Render.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
+    <ClCompile Include="Rigidbody.cpp" />
     <ClCompile Include="SpringForceGenerator.cpp" />
     <ClCompile Include="Submarine.cpp" />
+    <ClCompile Include="Torpedo.cpp" />
     <ClCompile Include="WhirlwindForceGenerator.cpp" />
     <ClCompile Include="WindForceGenerator.cpp" />
   </ItemGroup>
@@ -509,6 +512,7 @@
     <ClInclude Include="ExplosionForceGenerator.h" />
     <ClInclude Include="ForceGenerator.h" />
     <ClInclude Include="GravityForceGenerator.h" />
+    <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleGaussianGenerator.h" />
     <ClInclude Include="ParticleGenerator.h" />
@@ -519,8 +523,10 @@
     <ClInclude Include="Render\Camera.h" />
     <ClInclude Include="Render\Render.h" />
     <ClInclude Include="ParticleSystem.h" />
+    <ClInclude Include="Rigidbody.h" />
     <ClInclude Include="SpringForceGenerator.h" />
     <ClInclude Include="Submarine.h" />
+    <ClInclude Include="Torpedo.h" />
     <ClInclude Include="Vector3D.h" />
     <ClInclude Include="WhirlwindForceGenerator.h" />
     <ClInclude Include="WindForceGenerator.h" />

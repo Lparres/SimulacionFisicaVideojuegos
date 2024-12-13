@@ -17,6 +17,8 @@
 #include "GravityForceGenerator.h"
 
 #include "Submarine.h"
+#include "Obstacle.h"
+#include "Torpedo.h"
 
 std::string density_text = "";
 std::string main_Ballast_text = "";
@@ -50,6 +52,9 @@ std::list<Particle*> globalList;
 
 Submarine* submarine;
 
+std::vector<Obstacle*> obs;
+std::vector<Torpedo*> torpedos;
+
 // Initialize physics engine
 void initPhysics(bool interactive)
 {
@@ -67,6 +72,9 @@ void initPhysics(bool interactive)
 
 	gMaterial = gPhysics->createMaterial(0.5f, 0.5f, 0.6f);
 
+	
+
+
 	// Creamos una escena (PxScene) para definir nuestros sóidos rígidos
 	PxSceneDesc sceneDesc(gPhysics->getTolerancesScale());
 	sceneDesc.gravity = PxVec3(0.0f, 0.0f, 0.0f);							// NO HAY GRAVEDAD
@@ -82,18 +90,25 @@ void initPhysics(bool interactive)
 
 	// Generar suelo
 	PxRigidStatic* suelo;
-	suelo = gPhysics->createRigidStatic(PxTransform({ 0, 0, 0 }));	// Definimos una posición
-	PxShape* shape = CreateShape(PxBoxGeometry(100, 0.1, 100));		// Definimos una forma
+	suelo = gPhysics->createRigidStatic(PxTransform({ 0, -100, 0 }));	// Definimos una posición
+	PxShape* shape = CreateShape(PxBoxGeometry(1000, 1, 1000));		// Definimos una forma
 	suelo->attachShape(*shape);
 	gScene->addActor(*suelo);	// Añadimos el elemento a la escena gScene
 
 	// Pintar suelo
 	RenderItem* renderSuelo;
-	renderSuelo = new RenderItem(shape, suelo, { 0.1, 0.1, 0.1, 1 });
+	renderSuelo = new RenderItem(shape, suelo, { 0.6, 0.6, 0.6, 1 });
 
 
-	submarine = new Submarine(PxTransform({ 0, 40, 0 }), 20000, gPhysics, gScene);	// 34557.5
+	submarine = new Submarine(PxTransform({ 0, 40, 0 }), 20000, gScene);	// 34557.5
 
+	obs.push_back(new Obstacle({20, 15, 20}, {140, 40, 0}, 100, gScene));
+	obs.push_back(new Obstacle({20, 15, 20}, {140, 10, 0}, 100, gScene));
+	obs.push_back(new Obstacle({20, 15, 20}, {140, -20, 0}, 100, gScene));
+	obs.push_back(new Obstacle({20, 15, 20}, {140, -50, 0}, 100, gScene));
+	obs.push_back(new Obstacle({20, 15, 20}, {140, -80, 0}, 100, gScene));
+	obs.push_back(new Obstacle({20, 15, 20}, {140, 70, 0}, 100, gScene));
+	//obs.push_back(new Obstacle({20, 15, 20}, {140, -60, 0}, 100, gScene));
 
 	RenderItem* agua = new RenderItem(CreateShape(PxBoxGeometry(1000, 0.01, 1000)), new PxTransform(PxVec3(0, 50, 0)), { 0, 0, 1, 0.1 });
 
@@ -118,15 +133,23 @@ void stepPhysics(bool interactive, double t)
 {
 	PX_UNUSED(interactive);
 
-	PxVec3 cameraPos = PxVec3(submarine->GetRigidBody()->getGlobalPose().p) + PxVec3(-120, 80, 0);
+	PxVec3 cameraPos = PxVec3(submarine->rigidBody->getGlobalPose().p) + PxVec3(-120, 80, 0);
 	GetCamera()->mEye = cameraPos;
 	GetCamera()->mDir = PxVec3(0.80, -0.5, 0).getNormalized();
-	std::cout << GetCamera()->mDir.x << " " << GetCamera()->mDir.y << " " << GetCamera()->mDir.z << "\n";
+	//std::cout << GetCamera()->mDir.x << " " << GetCamera()->mDir.y << " " << GetCamera()->mDir.z << "\n";
 
 	gScene->simulate(t);
 
 	submarine->UpdateForces(t);
 	submarine->UpdateBallastTanks(t);
+
+	for (auto e : obs) {
+		e->UpdateForces(t);
+	}
+
+	for (auto e : torpedos) {
+		e->UpdateForces(t);
+	}
 
 	particleSystem->Update(t);
 
@@ -217,7 +240,14 @@ void keyPress(unsigned char key, const PxTransform& camera)
 		submarine->movementDirection = PxVec3(0, 0, 0);
 		break;
 
-
+	// Torpedos
+	case 'F':
+	{
+		PxVec3 initialPos = submarine->rigidBody->getGlobalPose().p + PxVec3(0, 20, 0);
+		torpedos.push_back(new Torpedo(PxTransform(initialPos), 100, gScene, &obs));
+		torpedos.back()->movementDirection = PxVec3(50, 0, 0);
+		break;
+	}
 	case 'Z':
 	{
 		

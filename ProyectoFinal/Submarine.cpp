@@ -3,10 +3,10 @@
 
 using namespace physx;
 
-Submarine::Submarine(physx::PxTransform transform, float m, PxPhysics* physics, PxScene* scene)
+Submarine::Submarine(physx::PxTransform transform, float m, PxScene* scene)
 {
 	
-	rigidBody = physics->createRigidDynamic(transform);		// Definimos una posición
+	rigidBody = PxGetPhysics().createRigidDynamic(transform);		// Definimos una posición
 
 	rigidBody->setLinearVelocity({ 0, 0, 0 });								// Definimos velocidad lienal
 	rigidBody->setAngularVelocity({ 0, 0, 0 });								// Definimos velocidad angular
@@ -22,7 +22,7 @@ Submarine::Submarine(physx::PxTransform transform, float m, PxPhysics* physics, 
 
 	// Pintar submarino
 	RenderItem* renderSubmarino;
-	renderSubmarino = new RenderItem(shape, rigidBody, { 1, 1, 1, 1 });
+	renderSubmarino = new RenderItem(shape, rigidBody, { 0, 1.5, 0, 1 });
 
 	movementDirection = PxVec3(0, 0, 0);
 
@@ -38,6 +38,9 @@ void Submarine::UpdateForces(double t)
 	UpdateGravityForce(t);
 	UpdateDragForce(t);
 	UpdateMovementForce(t);
+
+	std::cout << "Velocity: (" << rigidBody->getLinearVelocity().x << ", " << rigidBody->getLinearVelocity().y << ", " << rigidBody->getLinearVelocity().z << ")\n";
+
 }
 
 void Submarine::UpdateBallastTanks(double t)
@@ -71,7 +74,6 @@ void Submarine::UpdateBuoyancyForce(double t)
 	rigidBody->addForce(force * t, physx::PxForceMode::eIMPULSE);
 	//rigidBody->addForce(rigidBody->getMass() * PxVec3(0, 9.8, 0));
 	//std::cout << "Fuerza de flotacion: " << force.y << "\n";
-	std::cout << "Velocity: " << rigidBody->getLinearVelocity().x << "\n";
 }
 
 void Submarine::UpdateGravityForce(double t)

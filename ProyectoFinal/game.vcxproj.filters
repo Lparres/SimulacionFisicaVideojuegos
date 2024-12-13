@@ -28,6 +28,9 @@
     <ClCompile Include="BuoyancyForceGenerator.cpp" />
     <ClCompile Include="Submarine.cpp" />
     <ClCompile Include="BallastTank.cpp" />
+    <ClCompile Include="Obstacle.cpp" />
+    <ClCompile Include="Rigidbody.cpp" />
+    <ClCompile Include="Torpedo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core.hpp" />
@@ -58,6 +61,9 @@
     <ClInclude Include="BuoyancyForceGenerator.h" />
     <ClInclude Include="Submarine.h" />
     <ClInclude Include="BallastTank.h" />
+    <ClInclude Include="Obstacle.h" />
+    <ClInclude Include="Rigidbody.h" />
+    <ClInclude Include="Torpedo.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">

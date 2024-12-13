@@ -8,9 +8,7 @@
 class Submarine
 {
 public:
-	Submarine(physx::PxTransform transform, float m, physx::PxPhysics* physics, physx::PxScene* scene);
-
-	physx::PxRigidDynamic* GetRigidBody() const { return rigidBody; };
+	Submarine(physx::PxTransform transform, float m, physx::PxScene* scene);
 
 	void UpdateForces(double t);
 
@@ -43,9 +41,6 @@ public:
 	BallastTank main_BallastTank;
 	BallastTank compensation_BallastTank;
 	BallastTank quick_BallastTank;
-
-
-	RenderItem* renderItem;
 
 	physx::PxVec3 movementDirection;
 };

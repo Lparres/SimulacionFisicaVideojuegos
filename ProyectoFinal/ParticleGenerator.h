@@ -16,7 +16,7 @@ public:
 
 	virtual void GenerateParticle() = 0;
 
-protected:
+public:
 	int id;
 	Vector3D<> position;
 	Vector3D<> direction;

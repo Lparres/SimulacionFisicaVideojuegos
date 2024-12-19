@@ -18,8 +18,10 @@
 
 #include "Submarine.h"
 #include "Obstacle.h"
+#include "ObstacleColumn.h"
 #include "Torpedo.h"
 
+std::string velocity_text = "";
 std::string density_text = "";
 std::string main_Ballast_text = "";
 std::string compensation_Ballast_text = "";
@@ -53,6 +55,7 @@ std::list<Particle*> globalList;
 Submarine* submarine;
 
 std::vector<Obstacle*> obs;
+std::vector<ObstacleColumn*> columns;
 std::vector<Torpedo*> torpedos;
 
 // Initialize physics engine
@@ -90,7 +93,7 @@ void initPhysics(bool interactive)
 
 	// Generar suelo
 	PxRigidStatic* suelo;
-	suelo = gPhysics->createRigidStatic(PxTransform({ 0, -100, 0 }));	// Definimos una posición
+	suelo = gPhysics->createRigidStatic(PxTransform({ 0, -300, 0 }));	// Definimos una posición
 	PxShape* shape = CreateShape(PxBoxGeometry(1000, 1, 1000));		// Definimos una forma
 	suelo->attachShape(*shape);
 	gScene->addActor(*suelo);	// Añadimos el elemento a la escena gScene
@@ -100,20 +103,27 @@ void initPhysics(bool interactive)
 	renderSuelo = new RenderItem(shape, suelo, { 0.6, 0.6, 0.6, 1 });
 
 
-	submarine = new Submarine(PxTransform({ 0, 40, 0 }), 20000, gScene);	// 34557.5
+	submarine = new Submarine(PxTransform({ 0, 40, 0 }), 20000, gScene, globalList);	// 34557.5
 
-	obs.push_back(new Obstacle({20, 15, 20}, {140, 40, 0}, 100, gScene));
-	obs.push_back(new Obstacle({20, 15, 20}, {140, 10, 0}, 100, gScene));
-	obs.push_back(new Obstacle({20, 15, 20}, {140, -20, 0}, 100, gScene));
-	obs.push_back(new Obstacle({20, 15, 20}, {140, -50, 0}, 100, gScene));
-	obs.push_back(new Obstacle({20, 15, 20}, {140, -80, 0}, 100, gScene));
-	obs.push_back(new Obstacle({20, 15, 20}, {140, 70, 0}, 100, gScene));
-	//obs.push_back(new Obstacle({20, 15, 20}, {140, -60, 0}, 100, gScene));
+	// Columnas de obstáculos
+	columns.push_back(new ObstacleColumn({ 2, 5, 2 }, { 140, -289, 0 }, { 10, 10, 10 }, 10, gScene, &obs));
+	columns.push_back(new ObstacleColumn({ 2, 8, 2 }, { 300, -289, 50 }, { 10, 10, 10 }, 10, gScene, &obs));
+	columns.push_back(new ObstacleColumn({ 2, 6, 2 }, { 350, -289, -30 }, { 10, 10, 10 }, 10, gScene, &obs));
+	columns.push_back(new ObstacleColumn({ 2, 7, 2 }, { 500, -289, 80 }, { 10, 10, 10 }, 10, gScene, &obs));
+	columns.push_back(new ObstacleColumn({ 2, 10, 2 }, { 550, -289, 20 }, { 10, 10, 10 }, 10, gScene, &obs));
+	columns.push_back(new ObstacleColumn({ 2, 9, 2 }, { 600, -289, 50 }, { 10, 10, 10 }, 10, gScene, &obs));
+	columns.push_back(new ObstacleColumn({ 2, 4, 2 }, { 650, -289, 80 }, { 10, 10, 10 }, 10, gScene, &obs));
+	columns.push_back(new ObstacleColumn({ 2, 6, 2 }, { 700, -289, -40 }, { 10, 10, 10 }, 10, gScene, &obs));
+	columns.push_back(new ObstacleColumn({ 2, 8, 2 }, { 750, -289, 50 }, { 10, 10, 10 }, 10, gScene, &obs));
+	columns.push_back(new ObstacleColumn({ 2, 7, 2 }, { 800, -289, -60 }, { 10, 10, 10 }, 10, gScene, &obs));
+	columns.push_back(new ObstacleColumn({ 2, 10, 2 }, { 850, -289, 0 }, { 10, 10, 10 }, 10, gScene, &obs));
+	columns.push_back(new ObstacleColumn({ 2, 8, 2 }, { 900, -289, 30 }, { 10, 10, 10 }, 10, gScene, &obs));
+
 
 	RenderItem* agua = new RenderItem(CreateShape(PxBoxGeometry(1000, 0.01, 1000)), new PxTransform(PxVec3(0, 50, 0)), { 0, 0, 1, 0.1 });
 
 
-	particleSystem = new ParticleSystem(globalList);
+	//particleSystem = new ParticleSystem(globalList);
 	
 	//particleSystem->AddGaussianGenerator(Vector3D<>(20, -20, 10), Vector3D<>(1, 0, 0), 30, 5, 1);
 	//particleSystem->AddUniformGenerator(Vector3D<>(0, 0, 0), Vector3D<>(-0.4, 1, 0), 10, 5, 1);
@@ -150,12 +160,14 @@ void stepPhysics(bool interactive, double t)
 	for (auto e : torpedos) {
 		e->UpdateForces(t);
 	}
-
-	particleSystem->Update(t);
+	
+	//particleSystem->Update(t);
 
 	for (Projectile* e : projectileVector) e->Integrate(t);
 
-	density_text = "Submarine density: " + std::to_string(submarine->GetDensity());
+	density_text = "Density: " + std::to_string(submarine->GetDensity());
+
+	velocity_text = "Velocity: ( " + std::to_string(submarine->rigidBody->getLinearVelocity().x) + ", " + std::to_string(submarine->rigidBody->getLinearVelocity().y) + ", " + std::to_string(submarine->rigidBody->getLinearVelocity().z) + " )";
 
 	main_Ballast_text = "(-N/M+) Main ballast: " + std::to_string(submarine->main_BallastTank.GetWaterPercentage()) + "%";
 	if (submarine->main_BallastTank.GetWaterGateOpen()) main_Ballast_text += " (Water OPEN) ";
@@ -222,33 +234,46 @@ void keyPress(unsigned char key, const PxTransform& camera)
 		submarine->movementDirection = PxVec3(1, 0, 0);
 		break;
 	case 'W':
-		submarine->movementDirection = PxVec3(2, 0, 0);
-		break;
-	case 'E':
 		submarine->movementDirection = PxVec3(3, 0, 0);
 		break;
-	case 'A':
+	case 'E':
+		submarine->movementDirection = PxVec3(5, 0, 0);
+		break;
+	case 'Z':
 		submarine->movementDirection = PxVec3(-1, 0, 0);
 		break;
-	case 'S':
-		submarine->movementDirection = PxVec3(-2, 0, 0);
-		break;
-	case 'D':
+	case 'X':
 		submarine->movementDirection = PxVec3(-3, 0, 0);
 		break;
-	case 'X':
+	case 'C':
+		submarine->movementDirection = PxVec3(-5, 0, 0);
+		break;
+	case 'S':
 		submarine->movementDirection = PxVec3(0, 0, 0);
+		break;
+	case 'A':
+		submarine->moveL = !submarine->moveL;
+		break;
+	case 'D':
+		submarine->moveR = !submarine->moveR;
 		break;
 
 	// Torpedos
 	case 'F':
 	{
-		PxVec3 initialPos = submarine->rigidBody->getGlobalPose().p + PxVec3(0, 20, 0);
-		torpedos.push_back(new Torpedo(PxTransform(initialPos), 100, gScene, &obs));
+		PxVec3 initialPos = submarine->rigidBody->getGlobalPose().p + PxVec3(0, 20, -10);
+		torpedos.push_back(new Torpedo(PxTransform(initialPos), 100, gScene, &obs, globalList));
 		torpedos.back()->movementDirection = PxVec3(50, 0, 0);
 		break;
 	}
-	case 'Z':
+	case 'G':
+	{
+		PxVec3 initialPos = submarine->rigidBody->getGlobalPose().p + PxVec3(0, 20, 10);
+		torpedos.push_back(new Torpedo(PxTransform(initialPos), 100, gScene, &obs, globalList));
+		torpedos.back()->movementDirection = PxVec3(50, 0, 0);
+		break;
+	}
+	case 'L':
 	{
 		
 		Vector3D<> initialPos(GetCamera()->getTransform().p.x, GetCamera()->getTransform().p.y, GetCamera()->getTransform().p.z);

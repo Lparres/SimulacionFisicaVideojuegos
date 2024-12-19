@@ -31,6 +31,7 @@
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Rigidbody.cpp" />
     <ClCompile Include="Torpedo.cpp" />
+    <ClCompile Include="ObstacleColumn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core.hpp" />
@@ -64,6 +65,7 @@
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Rigidbody.h" />
     <ClInclude Include="Torpedo.h" />
+    <ClInclude Include="ObstacleColumn.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">

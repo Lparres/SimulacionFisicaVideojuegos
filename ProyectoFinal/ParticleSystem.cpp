@@ -5,9 +5,10 @@
 
 
 ParticleSystem::ParticleSystem(std::list<Particle*>& globalList) :
-	globalListRef(globalList)
+	globalListRef(globalList),
+	particlesToAdd(3)
 {
-	gravityForceGenerator = new GravityForceGenerator(Vector3D<>(0, -9.8, 0));
+	gravityForceGenerator = new GravityForceGenerator(Vector3D<>(0, 2, 0));
 	windForceGenerator = new WindForceGenerator(Vector3D<>(0, 1, 0), 0, 0.5, Vector3D<>(0, 0, 0), 1000);
 	whirlwindForceGenerator = new WhirlwindForceGenerator(1, 0.5, Vector3D<>(0, 0, 0), 1000);
 	explosionForceGenerator = new ExplosionForceGenerator(500, 1000, Vector3D<>(0, 0, 10));
@@ -44,20 +45,21 @@ int ParticleSystem::AddRainGenerator(Vector3D<> position, float radius, int inte
 
 void ParticleSystem::AddParticle(Vector3D<> position, Vector3D<> velocity, float mass, const physx::PxGeometryType::Enum& geoType, float size, const physx::PxVec4& color)
 {
-	Particle* p = new Particle(globalListRef, position, velocity, mass, geoType, size, color);
-	
-	p->AddForceGenerator(gravityForceGenerator);
-	//p->AddForceGenerator(windforceGenerator);
-	//p->AddForceGenerator(whirlwindForceGenerator);
-	p->AddForceGenerator(explosionForceGenerator);
-	particles.push_back(p);
+	for (int i = 0; i < particlesToAdd; i++) {
+		Particle* p = new Particle(globalListRef, position, velocity, mass, geoType, size, color);
+
+		p->AddForceGenerator(gravityForceGenerator);
+		//p->AddForceGenerator(windforceGenerator);
+		//p->AddForceGenerator(whirlwindForceGenerator);
+		//p->AddForceGenerator(explosionForceGenerator);
+		particles.push_back(p);
+	}
 }
 
 
 void ParticleSystem::Update(double t)
 {
 	explosionForceGenerator->UpdateGenerator(t);
-
 	GenerateParticles();
 	KillParticles();
 	UpdateParticles(t);
@@ -116,6 +118,7 @@ void ParticleSystem::GenerateBuoyancyDemo()
 void ParticleSystem::GenerateParticles()
 {
 	for (ParticleGenerator* gen : generators) {
+		gen->position = Vector3D<>(torpedoPos.x, torpedoPos.y, torpedoPos.z);
 		gen->GenerateParticle();
 	}
 }

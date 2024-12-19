@@ -3,11 +3,14 @@
 #include <PxPhysicsAPI.h>
 #include "RenderUtils.hpp"
 #include "Obstacle.h"
+#include "ParticleSystem.h"
+#include "Particle.h"
 
 class Torpedo
 {
 public:
-	Torpedo(physx::PxTransform transform, float m, physx::PxScene* scene, std::vector<Obstacle*>* obs);
+	Torpedo(physx::PxTransform transform, float m, physx::PxScene* scene, std::vector<Obstacle*>* obs, std::list<Particle*>& globalList);
+	~Torpedo();
 
 	physx::PxRigidDynamic* GetRigidBody() const { return rigidBody; };
 
@@ -37,5 +40,7 @@ private:
 	physx::PxVec3 lastVelocity;
 
 	std::vector<Obstacle*>* obstacles;
+
+	ParticleSystem* particleSystem = nullptr;
 };
 

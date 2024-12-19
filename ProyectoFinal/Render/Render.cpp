@@ -249,7 +249,7 @@ void setupDefaultWindow(const char *name)
 
 	glutInit(&argc, argv);
 	
-	glutInitWindowSize(512, 512);
+	glutInitWindowSize(1300, 800);
 	glutInitDisplayMode(GLUT_RGB|GLUT_DOUBLE|GLUT_DEPTH);
 	int mainHandle = glutCreateWindow(name);
 	glutSetWindow(mainHandle);
@@ -288,10 +288,11 @@ void startRender(const PxVec3& cameraEye, const PxVec3& cameraDir, PxReal clipNe
 
 	// Display text
 	glColor4f(1.0f, 0.2f, 0.2f, 1.0f);
-	drawText(density_text, 0, 0);
-	drawText(main_Ballast_text, 0, 20);
-	drawText(compensation_Ballast_text, 0, 35);
-	drawText(quick_Ballast_text, 0, 50);
+	drawText(velocity_text, 10, 10);
+	drawText(density_text, 10, 25);
+	drawText(main_Ballast_text, 10, 45);
+	drawText(compensation_Ballast_text, 10, 60);
+	drawText(quick_Ballast_text, 10, 75);
 
 
 	// Setup camera

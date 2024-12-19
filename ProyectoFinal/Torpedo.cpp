@@ -1,9 +1,10 @@
 #include "Torpedo.h"
 #include <iostream>
 
+
 using namespace physx;
 
-Torpedo::Torpedo(physx::PxTransform transform, float m, physx::PxScene* scene, std::vector<Obstacle*>* obs)
+Torpedo::Torpedo(physx::PxTransform transform, float m, physx::PxScene* scene, std::vector<Obstacle*>* obs, std::list<Particle*>& globalList)
 {
 	rigidBody = PxGetPhysics().createRigidDynamic(transform);		// Definimos una posición
 
@@ -27,12 +28,23 @@ Torpedo::Torpedo(physx::PxTransform transform, float m, physx::PxScene* scene, s
 
 	obstacles = obs;
 	lastVelocity = PxVec3(0, 0, 0);
+
+	particleSystem = new ParticleSystem(globalList);
+
+	particleSystem->AddGaussianGenerator(Vector3D<>(0, 0, 0), Vector3D<>(0, 0, 1), 3, 100, 1);
+}
+
+Torpedo::~Torpedo()
+{
+	delete particleSystem;
 }
 
 void Torpedo::UpdateForces(double t)
 {
 	UpdateMovementForce(t);
 	CheckIfExplosion();
+	particleSystem->torpedoPos = rigidBody->getGlobalPose().p;
+	particleSystem->Update(t);
 }
 
 void Torpedo::UpdateMovementForce(double t)

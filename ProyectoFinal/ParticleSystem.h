@@ -16,7 +16,7 @@ class ParticleGenerator;
 class Particle;
 
 #define MAX_DISTANCE 2000
-#define MAX_LIFETIME 100
+#define MAX_LIFETIME 5
 
 class ParticleSystem
 {
@@ -44,6 +44,8 @@ public:
 
 	void GenerateBuoyancyDemo();
 
+	Vector3 torpedoPos;
+
 private:
 	std::list<ParticleGenerator*> generators;
 	std::list<Particle*> particles;
@@ -59,5 +61,9 @@ private:
 	void GenerateParticles();
 	void KillParticles();
 	void UpdateParticles(double t);
+
+
+public:
+	int particlesToAdd;
 };
 

@@ -3,7 +3,7 @@
 
 using namespace physx;
 
-Submarine::Submarine(physx::PxTransform transform, float m, PxScene* scene)
+Submarine::Submarine(physx::PxTransform transform, float m, PxScene* scene, std::list<Particle*>& globalList)
 {
 	
 	rigidBody = PxGetPhysics().createRigidDynamic(transform);		// Definimos una posición
@@ -25,11 +25,21 @@ Submarine::Submarine(physx::PxTransform transform, float m, PxScene* scene)
 	renderSubmarino = new RenderItem(shape, rigidBody, { 0, 1.5, 0, 1 });
 
 	movementDirection = PxVec3(0, 0, 0);
+	moveL = false;
+	moveR = false;
 
 	main_BallastTank = BallastTank(20000, 2000);
 	compensation_BallastTank = BallastTank(5000, 500);
 	quick_BallastTank = BallastTank(8000, 4000);
 
+	particleSystemL = new ParticleSystem(globalList);
+	particleSystemL->AddGaussianGenerator(Vector3D<>(0, 0, 0), Vector3D<>(0, 0, 1), 20, 20, 5);
+	
+	particleSystemR = new ParticleSystem(globalList);
+	particleSystemR->AddGaussianGenerator(Vector3D<>(0, 0, 0), Vector3D<>(0, 0, 1), -20, 20, 5);
+	
+	particleSystemF = new ParticleSystem(globalList);
+	particleSystemF->AddGaussianGenerator(Vector3D<>(0, 0, 0), Vector3D<>(-1, 0, -1), 20, 20, 5);
 }
 
 void Submarine::UpdateForces(double t)
@@ -41,6 +51,14 @@ void Submarine::UpdateForces(double t)
 
 	std::cout << "Velocity: (" << rigidBody->getLinearVelocity().x << ", " << rigidBody->getLinearVelocity().y << ", " << rigidBody->getLinearVelocity().z << ")\n";
 
+	particleSystemL->torpedoPos = rigidBody->getGlobalPose().p;
+	particleSystemL->Update(t);
+
+	particleSystemR->torpedoPos = rigidBody->getGlobalPose().p;
+	particleSystemR->Update(t);
+
+	particleSystemF->torpedoPos = rigidBody->getGlobalPose().p - Vector3(50, 0, 0);
+	particleSystemF->Update(t);
 }
 
 void Submarine::UpdateBallastTanks(double t)
@@ -72,8 +90,6 @@ void Submarine::UpdateBuoyancyForce(double t)
 	force.y = 1 * volume * immersed * 9.8;	// Liquid density * displaced volume * gravity aceleration
 
 	rigidBody->addForce(force * t, physx::PxForceMode::eIMPULSE);
-	//rigidBody->addForce(rigidBody->getMass() * PxVec3(0, 9.8, 0));
-	//std::cout << "Fuerza de flotacion: " << force.y << "\n";
 }
 
 void Submarine::UpdateGravityForce(double t)
@@ -95,7 +111,19 @@ void Submarine::UpdateDragForce(double t)
 
 void Submarine::UpdateMovementForce(double t)
 {
-	PxVec3 force = movementDirection * GetMass();	// La fuerza del motor depende de la masa del submarino.
+	Vector3 dir = movementDirection;
+
+	if (moveL) dir += Vector3(0, 0, -3);
+	if (moveR) dir += Vector3(0, 0, 3);
+
+	if (dir.x > 0) particleSystemF->particlesToAdd = 3;
+	else particleSystemF->particlesToAdd = 0;
+
+	if (dir.z > 0) { particleSystemL->particlesToAdd = 0; particleSystemR->particlesToAdd = 3; }
+	else if (dir.z < 0) { particleSystemL->particlesToAdd = 3; particleSystemR->particlesToAdd = 0; }
+	else { particleSystemL->particlesToAdd = 0; particleSystemR->particlesToAdd = 0; }
+
+	PxVec3 force = dir * GetMass();	// La fuerza del motor depende de la masa del submarino.
 	rigidBody->addForce(force * t, physx::PxForceMode::eIMPULSE);
 }
 

@@ -47,6 +47,7 @@
 #endif
 #include <string>
 
+extern std::string velocity_text;
 extern std::string density_text;
 extern std::string main_Ballast_text;
 extern std::string compensation_Ballast_text;

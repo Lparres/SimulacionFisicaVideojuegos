@@ -3,12 +3,13 @@
 #include <PxPhysicsAPI.h>
 #include "RenderUtils.hpp"
 #include "BallastTank.h"
+#include "ParticleSystem.h"
 
 
 class Submarine
 {
 public:
-	Submarine(physx::PxTransform transform, float m, physx::PxScene* scene);
+	Submarine(physx::PxTransform transform, float m, physx::PxScene* scene, std::list<Particle*>& globalList);
 
 	void UpdateForces(double t);
 
@@ -43,5 +44,12 @@ public:
 	BallastTank quick_BallastTank;
 
 	physx::PxVec3 movementDirection;
+	bool moveL;
+	bool moveR;
+
+private:
+	ParticleSystem* particleSystemL = nullptr;
+	ParticleSystem* particleSystemR = nullptr;
+	ParticleSystem* particleSystemF = nullptr;
 };
 

@@ -485,6 +485,7 @@
     <ClCompile Include="GravityForceGenerator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Obstacle.cpp" />
+    <ClCompile Include="ObstacleColumn.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="ParticleGaussianGenerator.cpp" />
     <ClCompile Include="ParticleGenerator.cpp" />
@@ -513,6 +514,7 @@
     <ClInclude Include="ForceGenerator.h" />
     <ClInclude Include="GravityForceGenerator.h" />
     <ClInclude Include="Obstacle.h" />
+    <ClInclude Include="ObstacleColumn.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleGaussianGenerator.h" />
     <ClInclude Include="ParticleGenerator.h" />

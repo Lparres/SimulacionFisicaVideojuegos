@@ -30,7 +30,7 @@ void ParticleGaussianGenerator::GenerateParticle()
         1,
         physx::PxGeometryType::Enum::eSPHERE,
         0.5,
-        physx::PxVec4(1.0, 1.0, 0.0, 1.0));
+        physx::PxVec4(0.0, 0.0, 0.5, 0.3));
 }
 
 Vector3D<> ParticleGaussianGenerator::RandomDir()

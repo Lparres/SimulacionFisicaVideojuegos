@@ -32,7 +32,7 @@ void Obstacle::Explode(physx::PxVec3 origin)
 {
 	PxVec3 dir = rigidBody->getGlobalPose().p - origin;
 	float distance = dir.magnitude();
-	if (distance < 1000) {
+	if (distance < 50) {
 		std::cout << "Dir.Y: " << dir.y << "\n";
 		rigidBody->addForce(dir * (500000 / pow(distance, 2)), physx::PxForceMode::eIMPULSE);
 	}

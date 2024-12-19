@@ -89,7 +89,7 @@ void initPhysics(bool interactive)
 
 
 	// Creación de los ejes del mundo
-	axis = new Axis3D();
+	//axis = new Axis3D();
 
 	// Generar suelo
 	PxRigidStatic* suelo;
